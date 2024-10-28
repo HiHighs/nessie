@@ -1,0 +1,25 @@
+.nav {
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem auto;
+  width: fit-content;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.nav li a {
+  color: #333;
+  letter-spacing: 0.04em;
+  font-weight: lighter;
+  text-decoration: none;
+  padding: 1rem 1rem;
+}
+
+.nav li a:hover {
+  color: #089fda;
+  text-decoration: none;
+}

@@ -1,0 +1,28 @@
+.container {
+  background-color: #ff5f25;
+  min-height: 30vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* fade in */
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+.text {
+  font-size: 3em;
+  color: white;
+  letter-spacing: 0.072em;
+}
+
+/* fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
