@@ -5,16 +5,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* fade in */
-  opacity: 0;
-  animation: fadeIn 1.5s ease-in forwards;
 }
 
 .text {
   font-size: 3em;
   color: white;
   letter-spacing: 0.072em;
+}
+
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
 }
 
 /* fade in */

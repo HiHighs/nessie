@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import styles from './Categories.module.css';
+import PropTypes from 'prop-types';
 
-function Categories() {
+function Categories({ className }) {
   return (
-    <div className={styles.grid}>
+    <div className={`${styles.grid} ${className}`}>
       <Link
         to='/digital'
         className={`${styles.imageContainer} ${styles.imageContainer1}`}
@@ -31,5 +32,10 @@ function Categories() {
     </div>
   );
 }
+
+// Define prop types for validation
+Categories.propTypes = {
+  className: PropTypes.string, // Specify that className should be a string
+};
 
 export default Categories;

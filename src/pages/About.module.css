@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  /* align-items: center;
+  justify-content: center; */
+
+  max-width: 1280px;
+  margin: 0 auto;
+
+  gap: 12em;
+
+  padding: 7vh 8vw;
+}
+
+.nessie {
+  width: 33%;
+  height: 33%;
+  padding-top: 1.2em;
+  transition: opacity 0.7s ease;
+}
+
+.nessie:hover {
+  opacity: 70%;
+  transition: opacity 0.7s ease;
+}
+
+.text h1 {
+  font-size: 1.5em;
+  letter-spacing: 0.072em;
+  margin-bottom: 0;
+}
+
+.text p {
+  text-align: left;
+  font-size: 95%;
+  line-height: 1.7em;
+  padding-top: 2em;
+  font-weight: 400;
+}
+
+.text .first {
+  padding-top: 0;
+}
+
+.text a {
+  color: #089fda;
+}
+
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+/* fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
