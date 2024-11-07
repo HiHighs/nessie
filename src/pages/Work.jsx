@@ -1,12 +1,12 @@
 import Navigation from '../Components/Navigation/Navigation';
 
-function Photography() {
+function Work() {
   return (
     <div>
       <Navigation />
-      Photography
+      <h1>Work</h1>
     </div>
   );
 }
 
-export default Photography;
+export default Work;

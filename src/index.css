@@ -10,3 +10,7 @@
 body {
   margin: 0 auto;
 }
+
+.mobile-body {
+  opacity: 30%;
+}

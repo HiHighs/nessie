@@ -6,28 +6,28 @@ function Categories({ className }) {
   return (
     <div className={`${styles.grid} ${className}`}>
       <Link
-        to='/digital'
+        to='/about'
         className={`${styles.imageContainer} ${styles.imageContainer1}`}
       >
-        <h3>Digital</h3>
+        <h3>About me</h3>
       </Link>
       <Link
-        to='/sketchbook'
+        to='/work'
         className={`${styles.imageContainer} ${styles.imageContainer2}`}
       >
-        <h3>Sketchbook</h3>
+        <h3>Work</h3>
       </Link>
       <Link
-        to='/abstract'
+        to='/Store'
         className={`${styles.imageContainer} ${styles.imageContainer3}`}
       >
-        <h3>Abstract</h3>
+        <h3>Store</h3>
       </Link>
       <Link
-        to='/photography'
+        to='/contact'
         className={`${styles.imageContainer} ${styles.imageContainer4}`}
       >
-        <h3>Photography</h3>
+        <h3>Contact</h3>
       </Link>
     </div>
   );

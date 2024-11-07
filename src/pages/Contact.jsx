@@ -4,7 +4,7 @@ function Contact() {
   return (
     <div>
       <Navigation />
-      Contact
+      <h1>Contact</h1>
     </div>
   );
 }

@@ -23,3 +23,87 @@
   color: #089fda;
   text-decoration: none;
 }
+
+.mobileMenuToggle {
+  display: flex;
+  justify-content: center;
+
+  /* ?? */
+  font-size: 3em;
+}
+
+.mobileMenuToggle div {
+  /* ?? */
+  font-size: 5em;
+}
+
+/* responsive */
+@media (max-width: 1200px) {
+  .nav li a {
+    font-size: 0.9em;
+  }
+}
+
+.container {
+  background-color: black;
+}
+
+/* MOBILE */
+/* Mobile menu toggle button */
+.mobileMenuToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Mobile menu overlay styling */
+.mobileBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 999;
+}
+
+.mobileMenuOverlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background-color: rgba(255, 255, 255, 0.75); */
+  color: white;
+  width: 80%;
+  max-width: 300px;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.mobileMenuOverlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobileMenuOverlay li {
+  margin: 1rem 0;
+}
+
+.mobileMenuOverlay a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.mobileMenuOverlay a:hover {
+  text-decoration: underline;
+}
+
+/* Prevent scrolling when mobile menu is open */
+.mobile-body {
+  overflow: hidden;
+}

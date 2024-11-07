@@ -1,12 +1,12 @@
 import Navigation from '../Components/Navigation/Navigation';
 
-function Sketchbook() {
+function Store() {
   return (
     <div>
       <Navigation />
-      Sketchbook spreads
+      <h1>Store</h1>
     </div>
   );
 }
 
-export default Sketchbook;
+export default Store;

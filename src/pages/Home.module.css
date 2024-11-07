@@ -27,3 +27,7 @@
     opacity: 1;
   }
 }
+
+/* responsive */
+@media (max-width: 768px) {
+}
