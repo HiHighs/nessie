@@ -35,15 +35,17 @@ function About() {
             <p>
               If you would like to discuss a future commission or collaboration,
               please email{' '}
-              <a href='mailto:extravertedwallflower@gmail.com'>
-                extravertedwallflower@gmail.com
+              <a href='mailto:vanessa.berskaln@gmail.com'>
+                vanessa.berskaln@gmail.com
               </a>
-              .
             </p>
             <p>
               Explore more of my art on my{' '}
-              <a href='https://www.instagram.com/extraverted_wallflower'>
-                instagram
+              <a
+                href='https://www.instagram.com/extraverted_wallflower'
+                target='_blank'
+              >
+                Instagram
               </a>{' '}
               page.
             </p>

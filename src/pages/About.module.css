@@ -45,6 +45,10 @@
   color: #089fda;
 }
 
+.text a:visited {
+  color: rgb(255, 0, 255);
+}
+
 .fadeIn {
   opacity: 0;
   animation: fadeIn 1.5s ease-in forwards;
