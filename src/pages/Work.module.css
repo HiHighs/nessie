@@ -1,0 +1,15 @@
+/* fade in */
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+/* fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

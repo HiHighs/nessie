@@ -1,13 +1,14 @@
 import Images from '../Components/Images/Images';
 import Navigation from '../Components/Navigation/Navigation';
 import Footer from '../Components/Footer/Footer';
+import styles from './Store.module.css';
 
 function Store() {
   return (
     <div>
       <Navigation />
-      <h1>Store</h1>
-      <Images folder='Store' />
+      <h1 className={styles.fadeIn}>Store</h1>
+      <Images folder='Store' className={styles.fadeIn} />
       <Footer />
     </div>
   );
