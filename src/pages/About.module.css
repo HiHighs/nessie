@@ -1,19 +1,17 @@
 .container {
   display: flex;
-  /* align-items: center;
-  justify-content: center; */
-
   max-width: 1280px;
   margin: 0 auto;
-
   gap: 12em;
-
   padding: 7vh 8vw;
+  flex-direction: row; /* Default: image and text side by side */
+  align-items: flex-start; /* Align items at the top */
+  justify-content: space-between; /* Space out the items horizontally */
 }
 
 .nessie {
   width: 33%;
-  height: 33%;
+  height: auto; /* Maintain aspect ratio */
   padding-top: 1.2em;
   transition: opacity 0.7s ease;
 }
@@ -61,5 +59,50 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+/* Responsive Layout for Smaller Screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack image and text vertically */
+    gap: 3em; /* Reduce the gap between stacked items */
+    align-items: center; /* Center-align items for better presentation */
+  }
+
+  .nessie {
+    width: 80%; /* Make the image occupy a larger portion of the screen */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .text {
+    text-align: center; /* Center-align text content */
+    padding: 0 2vw; /* Add some padding for better spacing */
+  }
+
+  .text h1 {
+    font-size: 1.8em; /* Slightly increase the title size for readability */
+  }
+
+  .text p {
+    font-size: 1rem; /* Increase font size for better legibility */
+    line-height: 1.5em; /* Adjust line spacing */
+  }
+}
+
+/* Ultra-Small Screens (e.g., phones) */
+@media (max-width: 450px) {
+  .container {
+    padding: 5vh 3vw; /* Reduce padding for smaller viewports */
+  }
+
+  .nessie {
+    width: 100%; /* Let the image take full width */
+    padding-top: 0; /* Remove extra padding above the image */
+  }
+
+  .text p {
+    font-size: 0.9rem; /* Slightly smaller font for tight spaces */
+    line-height: 1.4em; /* Adjust line height for tighter layout */
   }
 }

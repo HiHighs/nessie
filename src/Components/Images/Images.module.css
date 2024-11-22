@@ -24,25 +24,6 @@
   cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-  /* .image {
-      height: 300px;
-    } */
-}
-
-@media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
-  /* .image {
-      max-height: 250px;
-    } */
-}
-
 /* Modal styles for enlarged image view */
 .modal {
   position: fixed;
@@ -50,7 +31,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,30 +41,104 @@
 .modalContent {
   position: relative;
   max-width: 90%;
-  max-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .modalImage {
-  width: 100%;
-  height: auto;
-  max-height: 100%;
+  width: auto;
+  height: 80vh;
 }
 
 .closeButton {
-  position: absolute;
-  top: 0;
-  right: 15px;
-  font-size: 3rem;
-  color: black;
-  background: none;
-  border: none;
+  position: fixed;
+  top: 10px; /* Spacing from the top */
+  right: 15px; /* Spacing from the right */
+  font-size: 3rem; /* Size of the "x" */
+  color: rgb(79, 79, 79);
+  background: none; /* No visible background */
+  border: none; /* Remove default border */
   cursor: pointer;
-  transition: opacity 0.4s ease;
+  z-index: 1002; /* Ensure it appears above other elements */
+  padding: 10px; /* Add padding around the "x" to increase the clickable area */
+  width: auto; /* Ensure it doesn't shrink */
+  height: auto; /* Ensure it doesn't shrink */
+  transition: color 0.4s ease;
 }
 
 .closeButton:hover {
-  opacity: 50%;
+  color: pink;
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+  .modalImage {
+    width: 100vw;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+/* Arrows - Hidden for smaller screens */
+.arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  background: none;
+  border: none;
+  color: rgb(79, 79, 79);
+  cursor: pointer;
+  z-index: 1002;
+  transition: color 0.3s ease;
+}
+
+.arrow:hover {
+  color: pink;
+}
+
+.arrowLeft {
+  left: 20px;
+}
+
+.arrowRight {
+  right: 20px;
+}
+
+/* Hide arrows for smaller screens */
+@media (max-width: 600px) {
+  .arrow {
+    display: none;
+  }
+}
+
+/* Clickable areas for smaller screens */
+.clickAreaLeft,
+.clickAreaRight {
+  position: fixed;
+  top: 50px; /* Start below the close button */
+  width: 50%; /* Take up half the viewport width */
+  height: calc(100% - 50px); /* Adjust height to exclude the top section */
+  z-index: 1001; /* Behind the close button but above the modal background */
+  cursor: pointer;
+}
+
+.clickAreaLeft {
+  left: 0;
+}
+
+.clickAreaRight {
+  right: 0;
 }

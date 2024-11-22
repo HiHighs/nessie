@@ -3,6 +3,7 @@ import Navigation from '../Components/Navigation/Navigation';
 import styles from './Contact.module.css';
 import emailConfig from '../emailKey';
 import emailjs from 'emailjs-com';
+import Footer from '../Components/Footer/Footer';
 
 function Contact() {
   const [name, setName] = useState('');
@@ -24,11 +25,9 @@ function Contact() {
       .then(
         (result) => {
           console.log(result.text);
-          // setLoading(false);
           setSubmitted(true);
         },
         (error) => {
-          // setLoading(false);
           console.error(error.text);
         }
       );
@@ -40,9 +39,9 @@ function Contact() {
   }
 
   return (
-    <div>
+    <div className={styles.page}>
       <Navigation />
-      <h1>Contact</h1>
+      <h1 className={styles.title}>Contact</h1>
       <div className={styles.container}>
         <div className={styles.left}>
           <p>Vanessa Berskaln</p>
@@ -89,14 +88,13 @@ function Contact() {
                 />
               </div>
               <div className={styles.formElement}>
-                <input
-                  type='text'
+                <textarea
                   name='message'
                   value={message}
                   placeholder='Your message'
                   onChange={(e) => setMessage(e.target.value)}
                   required
-                />
+                ></textarea>
               </div>
               <button>Send</button>
             </form>
@@ -113,6 +111,7 @@ function Contact() {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

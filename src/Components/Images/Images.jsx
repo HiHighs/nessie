@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function Images({ folder, className }) {
   // State for the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   let images;
   switch (folder) {
@@ -24,26 +24,38 @@ function Images({ folder, className }) {
       images = {}; // Fallback to an empty object if folder is unrecognized
   }
 
-  const openModal = (image) => {
-    setSelectedImage(image);
+  const imageKeys = Object.keys(images);
+
+  const openModal = (index) => {
+    setSelectedIndex(index);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setSelectedImage(null);
+    setSelectedIndex(null);
+  };
+
+  const showNextImage = () => {
+    setSelectedIndex((prevIndex) => (prevIndex + 1) % imageKeys.length);
+  };
+
+  const showPrevImage = () => {
+    setSelectedIndex(
+      (prevIndex) => (prevIndex - 1 + imageKeys.length) % imageKeys.length
+    );
   };
 
   return (
     <div>
       <div className={`${styles.grid} ${className}`}>
-        {Object.keys(images).map((path, index) => (
+        {imageKeys.map((path, index) => (
           <img
             key={index}
             src={images[path].default}
             alt={`Image ${index + 1}`}
             className={styles.image}
-            onClick={() => openModal(images[path].default)}
+            onClick={() => openModal(index)}
           />
         ))}
       </div>
@@ -55,14 +67,42 @@ function Images({ folder, className }) {
             onClick={(e) => e.stopPropagation()}
           >
             <button className={styles.closeButton} onClick={closeModal}>
-              &times;
+              &#x2715;
             </button>
             <img
-              src={selectedImage}
-              alt='Enlarged view'
+              src={images[imageKeys[selectedIndex]].default}
+              alt={`Enlarged view ${selectedIndex + 1}`}
               className={styles.modalImage}
             />
+            {/* Buttons for larger screens */}
+            <button
+              className={`${styles.arrow} ${styles.arrowLeft}`}
+              onClick={showPrevImage}
+            >
+              &#9664;
+            </button>
+            <button
+              className={`${styles.arrow} ${styles.arrowRight}`}
+              onClick={showNextImage}
+            >
+              &#9654;
+            </button>
           </div>
+          {/* Clickable areas for smaller screens */}
+          <div
+            className={styles.clickAreaLeft}
+            onClick={(e) => {
+              e.stopPropagation();
+              showPrevImage();
+            }}
+          ></div>
+          <div
+            className={styles.clickAreaRight}
+            onClick={(e) => {
+              e.stopPropagation();
+              showNextImage();
+            }}
+          ></div>
         </div>
       )}
     </div>

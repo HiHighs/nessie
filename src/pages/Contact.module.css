@@ -1,11 +1,25 @@
+.title {
+  opacity: 0; /* fade in */
+  animation: fadeIn 1.5s ease-in forwards; /* fade in */
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .container {
+  flex: 1;
   margin: 0 auto;
   max-width: 980px;
-  padding: 4vh 4vw;
-
-  display: flex; /* Enable Flexbox */
-  justify-content: space-between; /* Add space between the two divs */
-  align-items: flex-start; /* Align items to the top (optional) */
+  padding: 6vh 6vw; /* Increased padding for more spacing */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box; /* Ensure padding doesn't add extra width */
+  opacity: 0; /* fade in */
+  animation: fadeIn 1.5s ease-in forwards; /* fade in */
 }
 
 .left {
@@ -17,21 +31,36 @@
 .right {
   text-align: left;
   flex: 1;
+  max-width: 100%; /* Ensure the right div uses all available width */
+  box-sizing: border-box; /* Prevent content from overflowing */
 }
 
-.formElement input {
-  width: 100%;
+footer {
+  margin-top: auto;
+}
+
+.formElement input,
+.formElement textarea {
+  width: 100%; /* Ensures input fields take the full width of the right div */
   margin-bottom: 25px;
-  padding: 8px;
+  padding: 12px; /* Increased padding for better UX */
   border: 1px solid transparent;
   border-bottom: 1px solid black;
-  font-size: 0.9rem;
+  font-size: 0.95rem; /* Slightly larger font for readability */
+  box-sizing: border-box; /* Prevent padding from increasing width */
 }
 
-.formElement input:focus {
+.formElement textarea {
+  resize: vertical;
+  transition: height 0.1s;
+  padding-bottom: 0px;
+  line-height: 1.2; /* Improved line height for better readability */
+}
+
+.formElement input:focus,
+.formElement textarea:focus {
   outline: none;
-  border: 1px solid transparent;
-  border-bottom: 1px solid black;
+  border: 1px solid black; /* Adds a clear border when focused */
   background-color: rgb(228, 228, 228);
 }
 
@@ -49,13 +78,61 @@
 
 .right button {
   background-color: white;
-  padding: 7px 15px;
+  padding: 10px 20px; /* Increased button padding */
   border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  font-size: 1rem; /* Larger font for buttons */
 }
 
 .right button:hover {
-  background-color: rgb(142, 219, 36);
+  background-color: pink;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack the divs vertically */
+    padding-top: 0vh; /* Slightly reduce padding on smaller screens */
+  }
+
+  .left {
+    margin-right: 0; /* Remove the right margin for better centering */
+    margin-bottom: 2vh; /* Add some spacing below */
+  }
+
+  .right {
+    margin-top: 2vh; /* Add some spacing above */
+    width: 100%; /* Allow the right div to take the full width */
+  }
+
+  .formElement input,
+  .formElement textarea {
+    width: 100%; /* Maintain full width for the form fields */
+  }
+}
+
+/* Media Query for Very Small Screens */
+@media (max-width: 450px) {
+  .formElement input,
+  .formElement textarea {
+    font-size: 0.85rem; /* Slightly reduce font size for better fit */
+    padding: 10px; /* Adjust padding for smaller input fields */
+  }
+
+  .right button {
+    padding: 8px 15px; /* Adjust button padding */
+    font-size: 0.9rem; /* Slightly reduce button font size */
+  }
+}
+
+/* fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
