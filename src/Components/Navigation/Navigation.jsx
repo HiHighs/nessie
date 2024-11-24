@@ -9,14 +9,12 @@ function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   function toggleMobileMenu() {
-    // document.body.classList.toggle('mobile-body', !mobileMenuOpen);
     setMobileMenuOpen((prev) => !prev);
   }
 
   useEffect(() => {
     function resize() {
       if (window.innerWidth > 1000) {
-        // document.body.classList.remove('mobile-body', !mobileMenuOpen);
         setMobileMenuOpen(false);
         setMobileMenu(false);
       } else {

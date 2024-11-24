@@ -3,4 +3,16 @@
   text-align: center;
   padding-bottom: 2vh;
   padding-top: 3vh;
+  opacity: 0; /* fade-in */
+  animation: fadeIn 1.5s ease-in forwards; /* fade-in */
+}
+
+/* Add fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

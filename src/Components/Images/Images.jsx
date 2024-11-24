@@ -1,34 +1,49 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Images.module.css';
 import PropTypes from 'prop-types';
 
 function Images({ folder, className }) {
-  // State for the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [fadeInClass, setFadeInClass] = useState(''); // State to trigger fade-in
 
-  let images;
+  let images, thumbnails;
   switch (folder) {
     case 'Work':
       images = import.meta.glob('../../assets/Work/*.{png,jpg,jpeg,svg}', {
         eager: true,
       });
+      thumbnails = import.meta.glob(
+        '../../assets/Work/thumbnails/*.{png,jpg,jpeg,svg}',
+        { eager: true }
+      );
       break;
     case 'Store':
       images = import.meta.glob('../../assets/Store/*.{png,jpg,jpeg,svg}', {
         eager: true,
       });
+      thumbnails = import.meta.glob(
+        '../../assets/Store/thumbnails/*.{png,jpg,jpeg,svg}',
+        { eager: true }
+      );
       break;
     default:
       console.warn(`Unknown folder: ${folder}`);
-      images = {}; // Fallback to an empty object if folder is unrecognized
+      images = {};
+      thumbnails = {};
   }
 
-  const imageKeys = Object.keys(images);
+  const imageKeys = Object.keys(images).map((path) => ({
+    full: images[path].default,
+    thumb:
+      thumbnails[path.replace(/\/([^/]+)$/, '/thumbnails/$1')]?.default ||
+      images[path].default,
+  }));
 
   const openModal = (index) => {
     setSelectedIndex(index);
     setIsModalOpen(true);
+    setFadeInClass(''); // Reset fade-in class
   };
 
   const closeModal = () => {
@@ -37,23 +52,39 @@ function Images({ folder, className }) {
   };
 
   const showNextImage = () => {
-    setSelectedIndex((prevIndex) => (prevIndex + 1) % imageKeys.length);
+    setFadeInClass(''); // Reset fade-in for the new image
+    setTimeout(
+      () => setSelectedIndex((prevIndex) => (prevIndex + 1) % imageKeys.length),
+      0
+    );
   };
 
   const showPrevImage = () => {
-    setSelectedIndex(
-      (prevIndex) => (prevIndex - 1 + imageKeys.length) % imageKeys.length
+    setFadeInClass(''); // Reset fade-in for the new image
+    setTimeout(
+      () =>
+        setSelectedIndex(
+          (prevIndex) => (prevIndex - 1 + imageKeys.length) % imageKeys.length
+        ),
+      0
     );
   };
+
+  useEffect(() => {
+    // Add fade-in effect when the selected image changes
+    if (selectedIndex !== null) {
+      setFadeInClass(styles.fadeIn);
+    }
+  }, [selectedIndex]);
 
   return (
     <div>
       <div className={`${styles.grid} ${className}`}>
-        {imageKeys.map((path, index) => (
+        {imageKeys.map(({ thumb }, index) => (
           <img
             key={index}
-            src={images[path].default}
-            alt={`Image ${index + 1}`}
+            src={thumb}
+            alt={`Thumbnail ${index + 1}`}
             className={styles.image}
             onClick={() => openModal(index)}
           />
@@ -70,11 +101,10 @@ function Images({ folder, className }) {
               &#x2715;
             </button>
             <img
-              src={images[imageKeys[selectedIndex]].default}
+              src={imageKeys[selectedIndex].full}
               alt={`Enlarged view ${selectedIndex + 1}`}
-              className={styles.modalImage}
+              className={`${styles.modalImage} ${fadeInClass}`} // Add fade-in class
             />
-            {/* Buttons for larger screens */}
             <button
               className={`${styles.arrow} ${styles.arrowLeft}`}
               onClick={showPrevImage}
@@ -88,7 +118,6 @@ function Images({ folder, className }) {
               &#9654;
             </button>
           </div>
-          {/* Clickable areas for smaller screens */}
           <div
             className={styles.clickAreaLeft}
             onClick={(e) => {

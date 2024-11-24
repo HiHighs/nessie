@@ -1,8 +1,15 @@
-.title {
-  letter-spacing: 0.072em;
-  font-size: 4.8em;
-  color: rgb(255, 94, 36);
-  margin-bottom: 0;
+.logo {
+  width: 250px; /* Adjust the size */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure proper scaling */
+  transition: transform 0.3s ease; /* Optional: Add hover effects */
+  padding-top: 3em;
+  opacity: 0; /* fade-in */
+  animation: fadeIn 1.5s ease-in forwards; /* fade-in */
+}
+
+.logo:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
 a {
@@ -19,5 +26,15 @@ a {
 @media (max-width: 1000px) {
   .title {
     font-size: 4.8em;
+  }
+}
+
+/* Add fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -4,6 +4,8 @@
   justify-content: space-between;
   margin: 1rem auto;
   width: fit-content;
+  opacity: 0; /* fade-in */
+  animation: fadeIn 1.5s ease-in forwards; /* fade-in */
 }
 
 .nav ul {
@@ -41,7 +43,7 @@
 /* responsive */
 @media (max-width: 1200px) {
   .nav li a {
-    font-size: 0.9em;
+    font-size: 1.2em;
   }
 }
 
@@ -107,4 +109,14 @@
 /* Prevent scrolling when mobile menu is open */
 .mobile-body {
   overflow: hidden;
+}
+
+/* Add fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
