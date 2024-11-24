@@ -7,7 +7,7 @@
 
   max-width: 980px;
   margin: 0 auto;
-  padding: 8vh 8vw;
+  padding: 3vh 8vw;
 }
 
 .grid a {
@@ -33,7 +33,7 @@
 .imageContainer {
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain; /* Ensures the entire image fits in the container */
   transition: opacity 0.7s ease;
 }
 
@@ -48,19 +48,19 @@
 }
 
 .imageContainer1 {
-  background-image: url('../../assets/Categories/digital.png');
+  background-image: url('../../assets/Categories/about.png');
 }
 
 .imageContainer2 {
-  background-image: url('../../assets/Categories/sketchbook.jpg');
+  background-image: url('../../assets/Categories/work.png');
 }
 
 .imageContainer3 {
-  background-image: url('../../assets/Categories/abstract.jpg');
+  background-image: url('../../assets/Categories/store.png');
 }
 
 .imageContainer4 {
-  background-image: url('../../assets/Categories/photography.jpg');
+  background-image: url('../../assets/Categories/contact.png');
 }
 
 /* responsive */

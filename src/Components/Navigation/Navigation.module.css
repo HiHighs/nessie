@@ -20,6 +20,7 @@
   font-weight: lighter;
   text-decoration: none;
   padding: 1rem 1rem;
+  font-size: 1.2em;
 }
 
 .nav li a:hover {
@@ -41,12 +42,6 @@
 }
 
 /* responsive */
-@media (max-width: 1200px) {
-  .nav li a {
-    font-size: 1.2em;
-  }
-}
-
 .container {
   background-color: black;
 }
