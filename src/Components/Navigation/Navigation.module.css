@@ -28,19 +28,6 @@
   text-decoration: none;
 }
 
-.mobileMenuToggle {
-  display: flex;
-  justify-content: center;
-
-  /* ?? */
-  font-size: 3em;
-}
-
-.mobileMenuToggle div {
-  /* ?? */
-  font-size: 5em;
-}
-
 /* responsive */
 .container {
   background-color: black;
@@ -49,10 +36,20 @@
 /* MOBILE */
 /* Mobile menu toggle button */
 .mobileMenuToggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  top: 20px;
+  left: 50%;
+  top: 140px;
   right: 20px;
   z-index: 1000;
+  transform: translateX(-50%);
+}
+
+.mobileMenuToggle div {
+  font-size: 3rem; /* Adjust size as needed */
+  cursor: pointer;
 }
 
 /* Mobile menu overlay styling */
