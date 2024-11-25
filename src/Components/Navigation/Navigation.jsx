@@ -3,10 +3,10 @@ import styles from './Navigation.module.css';
 import Header from '../Header/Header';
 import { useEffect, useState } from 'react';
 import Hamburger from 'hamburger-react';
-import aboutMe from '../../assets/Categories/_aboutme.png';
-import work from '../../assets/Categories/_work.png';
-import store from '../../assets/Categories/_store.png';
-import contact from '../../assets/Categories/_contact.png';
+import about from '../../assets/Categories/about_text.png';
+import work from '../../assets/Categories/work_text.png';
+import store from '../../assets/Categories/store_text.png';
+import contact from '../../assets/Categories/contact_text.png';
 
 function Navigation() {
   const [mobileMenu, setMobileMenu] = useState(window.innerWidth <= 1000);
@@ -47,7 +47,7 @@ function Navigation() {
             <ul>
               <li>
                 <NavLink to='/about'>
-                  <img src={aboutMe} className={styles.category} />
+                  <img src={about} className={styles.category} />
                 </NavLink>
               </li>
               <li>
