@@ -3,6 +3,10 @@ import styles from './Navigation.module.css';
 import Header from '../Header/Header';
 import { useEffect, useState } from 'react';
 import Hamburger from 'hamburger-react';
+import aboutMe from '../../assets/Categories/_aboutme.png';
+import work from '../../assets/Categories/_work.png';
+import store from '../../assets/Categories/_store.png';
+import contact from '../../assets/Categories/_contact.png';
 
 function Navigation() {
   const [mobileMenu, setMobileMenu] = useState(window.innerWidth <= 1000);
@@ -32,24 +36,34 @@ function Navigation() {
     <>
       <Header />
       {mobileMenu ? (
-        <div className={styles.mobileMenuToggle} onClick={toggleMobileMenu}>
-          <Hamburger toggled={mobileMenuOpen} size={20} />
+        <div className={styles.mobileMenuWrapper}>
+          <div className={styles.mobileMenuToggle} onClick={toggleMobileMenu}>
+            <Hamburger toggled={mobileMenuOpen} size={20} />
+          </div>
         </div>
       ) : (
         !mobileMenuOpen && (
           <nav className={styles.nav}>
             <ul>
               <li>
-                <NavLink to='/about'>About me</NavLink>
+                <NavLink to='/about'>
+                  <img src={aboutMe} className={styles.category} />
+                </NavLink>
               </li>
               <li>
-                <NavLink to='/work'>Work</NavLink>
+                <NavLink to='/work'>
+                  <img src={work} className={styles.category} />
+                </NavLink>
               </li>
               <li>
-                <NavLink to='/store'>Store</NavLink>
+                <NavLink to='/store'>
+                  <img src={store} className={styles.category} />
+                </NavLink>
               </li>
               <li>
-                <NavLink to='/contact'>Contact</NavLink>
+                <NavLink to='/contact'>
+                  <img src={contact} className={styles.category} />
+                </NavLink>
               </li>
             </ul>
           </nav>

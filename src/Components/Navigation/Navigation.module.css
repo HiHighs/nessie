@@ -39,7 +39,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: absolute;
   left: 50%;
   top: 140px;
   right: 20px;
@@ -111,4 +111,18 @@
   to {
     opacity: 1;
   }
+}
+
+.category {
+  width: auto;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.category:hover {
+  transform: scale(1.1);
+}
+
+.mobileMenuWrapper {
+  margin-bottom: 10vh; /* Adjust the value as needed */
 }
