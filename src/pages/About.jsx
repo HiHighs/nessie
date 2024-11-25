@@ -12,25 +12,21 @@ function About() {
         <div className={styles.text}>
           <h1>About me</h1>
           <p className={styles.first}>
-            Hi! Im Vanessa, a visual artist based in Belgium. Im passionate
-            about color, illustration, abstract art and watercolor. I would love
-            to share how I see the world and I hope you would enjoy it too.
-            <p>
-              I fell in love with watercolors. I love the intense colors and
-              transparency they can offer. Its internal freedom allowed me to
-              make my style loose, free, and childlike.
-            </p>
-            <p>
-              I find beauty in the small and maybe ordinary things: unexpected
-              color combinations, insects, birds, shapes and silhouettes of the
-              natural world. Although my art appears bright and cheerful,
-              sometimes I am exploring themes of grief and sadness in it. The
-              concept of tears fascinates me.
-            </p>
+            Hi! I am Vanessa, a visual artist based in Belgium. I would love to
+            share how I see the world and I hope you would enjoy it too.
             <p>
               Through my art, I hope to evoke feelings of calm and happiness in
               my viewers. I would love to inspire others to create their own art
               and appreciate the beauty of ordinary things around them.
+            </p>
+            <p>
+              I mostly use watercolors, I love the intensity and transparency
+              they can offer. Its internal freedom allowed me to make my style
+              loose, free and childlike. I find beauty in the small and maybe
+              ordinary things: unexpected color combinations, insects, birds,
+              shapes and silhouettes of the natural world. Although my art
+              appears bright and cheerful, sometimes I am exploring themes of
+              grief and sadness in it.
             </p>
             <p>
               If you would like to discuss a future commission or collaboration,

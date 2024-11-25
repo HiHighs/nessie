@@ -31,12 +31,12 @@
   text-align: left;
   font-size: 95%;
   line-height: 1.7em;
-  padding-top: 2em;
+  padding-top: 1em;
   font-weight: 400;
 }
 
 .text .first {
-  padding-top: 0;
+  padding-top: 1.5em;
 }
 
 .text a {
