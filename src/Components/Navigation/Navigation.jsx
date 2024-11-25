@@ -75,22 +75,22 @@ function Navigation() {
             <ul>
               <li>
                 <NavLink to='/about' onClick={toggleMobileMenu}>
-                  About me
+                  <img src={about} className={styles.mobileCategory} />
                 </NavLink>
               </li>
               <li>
                 <NavLink to='/work' onClick={toggleMobileMenu}>
-                  Work
+                  <img src={work} className={styles.mobileCategory} />
                 </NavLink>
               </li>
               <li>
                 <NavLink to='/store' onClick={toggleMobileMenu}>
-                  Store
+                  <img src={store} className={styles.mobileCategory} />
                 </NavLink>
               </li>
               <li>
                 <NavLink to='/contact' onClick={toggleMobileMenu}>
-                  Contact
+                  <img src={contact} className={styles.mobileCategory} />
                 </NavLink>
               </li>
             </ul>

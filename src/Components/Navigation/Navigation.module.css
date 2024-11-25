@@ -126,3 +126,8 @@
 .mobileMenuWrapper {
   margin-bottom: 10vh; /* Adjust the value as needed */
 }
+
+.mobileCategory {
+  width: auto;
+  height: 25px;
+}
