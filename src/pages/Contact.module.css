@@ -77,18 +77,41 @@ footer {
   color: rgb(255, 0, 255);
 }
 
-.right button {
+.send {
+  height: 40px;
+  width: auto;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+.send:hover {
+  transform: scale(1.1);
+}
+
+.right .back {
   background-color: white;
   padding: 10px 20px; /* Increased button padding */
-  border: 1px solid black;
+  border: 0px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
   font-size: 1rem; /* Larger font for buttons */
+  background-color: lightgray;
+  transition: background-color 0.5s ease;
 }
 
-.right button:hover {
-  background-color: pink;
+.right .back:hover {
+  background-color: #9ce400;
+}
+
+.sendButton {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  font-size: 0;
+  cursor: pointer;
 }
 
 /* Media Query for Smaller Screens */

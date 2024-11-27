@@ -1,0 +1,94 @@
+.cart {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartItem {
+  display: flex;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+.cartImage {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.cartDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center children horizontally */
+  width: 160px;
+  text-align: center; /* Optional: Align text */
+}
+
+.cartActions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.clearCart {
+  height: 28px;
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.clearCart:hover {
+  transform: scale(1.1);
+}
+
+.checkout {
+  height: 28px;
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.checkout:hover {
+  transform: scale(1.1);
+}
+
+.remove {
+  height: 20px;
+  width: 65px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.remove:hover {
+  transform: scale(1.1);
+}
+
+.productName {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* fade in */
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+/* fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

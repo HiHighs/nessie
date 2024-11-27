@@ -76,6 +76,14 @@
   border-radius: 10px;
   text-align: center;
   z-index: 1000;
+  opacity: 0; /* Set opacity to 0 initially */
+  animation: fadeIn 0.8s forwards; /* Apply fadeIn animation */
+  pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.mobileMenuOverlay.visible {
+  opacity: 1; /* Make visible when the menu is open */
+  pointer-events: all; /* Allow interaction when visible */
 }
 
 .mobileMenuOverlay ul {

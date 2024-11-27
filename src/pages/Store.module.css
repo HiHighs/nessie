@@ -1,3 +1,25 @@
+.productList {
+  display: flex;
+  gap: 2rem;
+  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+  padding: 1rem;
+  max-width: 1200px;
+  width: fit-content;
+  margin: 0 auto;
+
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+/* .productList img {
+  max-width: 200px;
+} */
+
+h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
 /* fade in */
 .fadeIn {
   opacity: 0;

@@ -4,6 +4,7 @@ import styles from './Contact.module.css';
 import emailConfig from '../emailKey';
 import emailjs from 'emailjs-com';
 import Footer from '../Components/Footer/Footer';
+import send from '../assets/Buttons/send.png';
 
 function Contact() {
   const [name, setName] = useState('');
@@ -96,7 +97,9 @@ function Contact() {
                   required
                 ></textarea>
               </div>
-              <button>Send</button>
+              <button className={styles.sendButton}>
+                <img className={styles.send} src={send} alt='Send' />
+              </button>
             </form>
           ) : (
             <div>

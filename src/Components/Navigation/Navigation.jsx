@@ -71,7 +71,11 @@ function Navigation() {
       )}
       {mobileMenuOpen && (
         <div className={styles.mobileBackground}>
-          <div className={styles.mobileMenuOverlay}>
+          <div
+            className={`${styles.mobileMenuOverlay} ${
+              mobileMenuOpen ? styles.visible : ''
+            }`}
+          >
             <ul>
               <li>
                 <NavLink to='/about' onClick={toggleMobileMenu}>

@@ -1,0 +1,173 @@
+.card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.productImage {
+  max-width: 200px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.4s ease;
+}
+
+.productImage:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
+.productName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  margin-bottom: 0;
+}
+
+.productPrice {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 auto;
+}
+
+.addToCart {
+  height: 28px;
+  width: auto;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.5s ease;
+  margin-top: 1.5vh;
+}
+
+.addToCart:hover {
+  transform: scale(1.1);
+}
+
+.addToCart:active {
+  transform: scale(0.8);
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.quantity {
+  font-size: 1rem;
+  padding: 0 1rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.decreaseButton,
+.increaseButton {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.decreaseButton:hover,
+.increaseButton:hover {
+  background-color: #ddd;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  position: relative;
+  max-width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem; /* Add spacing between image and details */
+  flex-wrap: wrap; /* For responsiveness */
+}
+
+.modalBody {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  gap: 3rem; /* Add spacing between image and details */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.modalImage {
+  width: auto;
+  height: 85vh;
+  object-fit: contain;
+}
+
+.modalDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  width: 250px;
+  text-align: center; /* Align text in the center */
+  gap: 1rem; /* Add spacing between elements */
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.addToCart {
+  margin: 0 auto;
+  margin-top: 0.5rem;
+}
+
+.modalDetails .addToCart {
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+.closeButton {
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  font-size: 3rem;
+  color: rgb(79, 79, 79);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+  padding: 10px;
+  transition: color 0.4s ease;
+}
+
+.closeButton:hover {
+  color: pink;
+}
+
+/* Add fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  animation: fadeIn 0.6s forwards;
+}
