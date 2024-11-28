@@ -4,8 +4,10 @@ import styles from './Cart.module.css';
 import clear from '../assets/Buttons/clearcart.png';
 import checkout from '../assets/Buttons/checkout.png';
 import remove from '../assets/Buttons/remove.png';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
+  const navigate = useNavigate();
   const { cart, removeFromCart, clearCart, totalAmount } = useCart();
 
   function handleRemove(productId, productName) {
@@ -25,7 +27,11 @@ function Cart() {
   }
 
   function handleCheckout() {
-    alert('TODO');
+    if (cart.length === 0) {
+      alert('Your cart is empty!');
+      return;
+    }
+    navigate('/checkout');
   }
 
   return (
