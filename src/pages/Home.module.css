@@ -25,6 +25,32 @@
   width: auto;
 }
 
+/* Mobile menu overlay styling */
+.mobileBackground {
+  display: none;
+}
+
+.mobileCategory {
+  width: auto;
+  height: 40px;
+  margin: 1vh 0;
+  /* transition: transform 0.5s ease; */
+}
+
+.mobileCategory:hover {
+  transform: scale(1.1);
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.mobileMenu ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
 /* fade in */
 @keyframes fadeIn {
   from {
@@ -38,10 +64,20 @@
 @media (max-width: 1000px) {
   .hey {
     content: url('../assets/Home/heymobile.png'); /* Specify the smaller image */
-  }
-
-  .hey {
     height: 170px;
     width: auto;
+  }
+
+  .categories {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: block;
+    margin-bottom: 3vh;
+  }
+
+  .container {
+    margin-top: 7vh;
   }
 }

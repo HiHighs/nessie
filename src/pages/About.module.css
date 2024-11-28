@@ -13,12 +13,12 @@
   width: 33%;
   height: auto; /* Maintain aspect ratio */
   padding-top: 1.2em;
-  transition: opacity 0.7s ease;
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .nessie:hover {
   opacity: 70%;
-  transition: opacity 0.7s ease;
+  transform: scale(1.02);
 }
 
 .text h1 {
@@ -68,16 +68,20 @@
     flex-direction: column; /* Stack image and text vertically */
     gap: 3em; /* Reduce the gap between stacked items */
     align-items: center; /* Center-align items for better presentation */
+    padding-top: 0;
+  }
+
+  /* Make sure the text comes before the image by setting the order */
+  .text {
+    order: 1; /* Text comes first */
+    text-align: center; /* Center-align text content */
+    padding: 0 2vw; /* Add some padding for better spacing */
   }
 
   .nessie {
+    order: 2; /* Image comes after the text */
     width: 80%; /* Make the image occupy a larger portion of the screen */
     height: auto; /* Maintain aspect ratio */
-  }
-
-  .text {
-    text-align: center; /* Center-align text content */
-    padding: 0 2vw; /* Add some padding for better spacing */
   }
 
   .text h1 {
@@ -88,12 +92,17 @@
     font-size: 1rem; /* Increase font size for better legibility */
     line-height: 1.5em; /* Adjust line spacing */
   }
+
+  .text .first {
+    padding-top: 0;
+  }
 }
 
 /* Ultra-Small Screens (e.g., phones) */
 @media (max-width: 450px) {
   .container {
     padding: 5vh 3vw; /* Reduce padding for smaller viewports */
+    padding-top: 0;
   }
 
   .nessie {
@@ -104,5 +113,9 @@
   .text p {
     font-size: 0.9rem; /* Slightly smaller font for tight spaces */
     line-height: 1.4em; /* Adjust line height for tighter layout */
+  }
+
+  .text .first {
+    padding-top: 0;
   }
 }

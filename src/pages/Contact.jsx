@@ -45,14 +45,6 @@ function Contact() {
       <h1 className={styles.title}>Contact</h1>
       <div className={styles.container}>
         <div className={styles.left}>
-          <p>Vanessa Berskaln</p>
-          <p>
-            If you would like to discuss a future commission or collaboration,
-            please email{' '}
-            <a href='mailto:vanessa.berskaln@gmail.com'>
-              vanessa.berskaln@gmail.com
-            </a>
-          </p>
           <p>
             Explore more of my art on my{' '}
             <a
@@ -61,7 +53,15 @@ function Contact() {
             >
               Instagram
             </a>{' '}
-            page.
+            page!
+          </p>
+          <p>
+            If you would like to discuss a future commission or collaboration,
+            please email{' '}
+            <a href='mailto:vanessa.berskaln@gmail.com'>
+              vanessa.berskaln@gmail.com
+            </a>{' '}
+            or leave a message through the form :)
           </p>
         </div>
 

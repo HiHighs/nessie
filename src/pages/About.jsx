@@ -7,10 +7,10 @@ function About() {
   return (
     <div>
       <Navigation />
+      <h1 className={styles.fadeIn}>About me</h1>
       <div className={`${styles.container} ${styles.fadeIn}`}>
         <img className={styles.nessie} src={nessie} />
         <div className={styles.text}>
-          <h1>About me</h1>
           <p className={styles.first}>
             Hi! I am Vanessa, a visual artist based in Belgium. I would love to
             share how I see the world and I hope you would enjoy it too.

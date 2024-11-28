@@ -1,18 +1,76 @@
+import { useState, useEffect } from 'react';
 import Categories from '../Components/Categories/Categories';
 import Footer from '../Components/Footer/Footer';
 import Navigation from '../Components/Navigation/Navigation';
 import styles from './Home.module.css';
 import hey from '../assets/Home/hey.png';
+import { NavLink } from 'react-router-dom';
+import about from '../assets/Categories/about_text.png';
+import work from '../assets/Categories/work_text.png';
+import store from '../assets/Categories/store_text.png';
+import contact from '../assets/Categories/contact_text.png';
+import Header from '../Components/Header/Header';
 
 function Home() {
+  // State to store the window width
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // Update windowWidth when the window is resized
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Add event listener for resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div>
-      <Navigation />
+      {/* Conditionally render Header or Navigation based on window width */}
+      {windowWidth < 1000 ? <Header /> : <Navigation />}
+
       <div className={`${styles.container} ${styles.fadeIn}`}>
-        {/* <h1 className={styles.text}>Hey! Welcome to my portfolio page!</h1> */}
-        <img src={hey} className={styles.hey} />
+        <img src={hey} className={styles.hey} alt='Hey!' />
       </div>
-      <Categories className={styles.fadeIn} />
+
+      <Categories className={`${styles.categories} ${styles.fadeIn}`} />
+
+      {/* Mobile menu for smaller screens */}
+      <div className={`${styles.mobileMenu} ${styles.fadeIn}`}>
+        <ul>
+          <li>
+            <NavLink to='/about'>
+              <img src={about} className={styles.mobileCategory} alt='About' />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/work'>
+              <img src={work} className={styles.mobileCategory} alt='Work' />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/store'>
+              <img src={store} className={styles.mobileCategory} alt='Store' />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/contact'>
+              <img
+                src={contact}
+                className={styles.mobileCategory}
+                alt='Contact'
+              />
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+
       <Footer />
     </div>
   );
