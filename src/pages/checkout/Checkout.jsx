@@ -6,8 +6,10 @@ import PropTypes from 'prop-types';
 import Header from '../../Components/Header/Header';
 import { sendAdminOrderNotification } from '../../services/emailService/emailService';
 import ClientInfo from './ClientInfo';
+import { useNavigate } from 'react-router-dom';
 
 function Checkout({ cart, totalAmount }) {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [clientDetails, setClientDetails] = useState(null);
   const [clientAddress, setClientAddress] = useState(null);
@@ -38,7 +40,12 @@ function Checkout({ cart, totalAmount }) {
   return (
     <div>
       <Header />
-      {step === 1 && <ClientInfo onNext={handleNextClientInfo} />}
+      {step === 1 && (
+        <ClientInfo
+          onBack={() => navigate('/cart')}
+          onNext={handleNextClientInfo}
+        />
+      )}
       {step === 2 && (
         <Payment onBack={() => setStep(1)} onNext={handleNextPayment} />
       )}

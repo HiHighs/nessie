@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-direction: column; /* Keeps content stacked vertically */
+  align-items: center; /* Centers child elements horizontally */
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+.detailsTitle,
+.addressTitle {
+  margin-bottom: 2vh;
+}
+
+.detailsForm,
+.addressForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers inputs horizontally */
+  gap: 15px; /* Adds spacing between inputs */
+  width: 100%;
+  margin-bottom: 5vh;
+}
+
+.detailsForm input,
+.addressForm input,
+.addressForm select {
+  padding: 12px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid black;
+  font-size: 0.95rem;
+  max-width: 300px;
+  width: 100%;
+}
+
+.detailsForm input:focus,
+.addressForm input:focus,
+.addressForm select:focus {
+  outline: none;
+  background-color: rgb(228, 228, 228);
+}
+
+.detailsForm select,
+.addressForm select {
+  max-width: 330px;
+}
+
+/* fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

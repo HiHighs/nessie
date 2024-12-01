@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import styles from './ClientInfo.module.css';
 
-function ClientInfo({ onNext }) {
+function ClientInfo({ onBack, onNext }) {
   const [details, setDetails] = useState({
     firstName: '',
     lastName: '',
@@ -43,9 +44,9 @@ function ClientInfo({ onNext }) {
   }
 
   return (
-    <div>
-      <h2>Personal Details</h2>
-      <form>
+    <div className={styles.container}>
+      <h1 className={styles.detailsTitle}>Personal Details</h1>
+      <form className={styles.detailsForm}>
         <input
           name='firstName'
           placeholder='First name'
@@ -68,8 +69,8 @@ function ClientInfo({ onNext }) {
           required
         />
       </form>
-      <h2>Shipping Address</h2>
-      <form>
+      <h2 className={styles.addressTitle}>Shipping Address</h2>
+      <form className={styles.addressForm}>
         <input
           name='street'
           placeholder='Street'
@@ -100,11 +101,12 @@ function ClientInfo({ onNext }) {
           <option value='Country' disabled selected>
             Select a country
           </option>
-          <option value='belgium'>Belgium</option>
-          <option value='netherlands'>The Netherlands</option>
-          <option value='luxemburg'>Luxemburg</option>
+          <option value='Belgium'>Belgium</option>
+          <option value='Netherlands'>The Netherlands</option>
+          <option value='Luxemburg'>Luxemburg</option>
         </select>
       </form>
+      <button onClick={onBack}>Back</button>
       <button onClick={handleNext}>Next</button>
     </div>
   );
@@ -112,7 +114,8 @@ function ClientInfo({ onNext }) {
 
 // Add PropTypes validation
 ClientInfo.propTypes = {
-  onNext: PropTypes.func.isRequired, // Ensures 'onNext' is passed and is a function
+  onBack: PropTypes.func.isRequired,
+  onNext: PropTypes.func.isRequired,
 };
 
 export default ClientInfo;
