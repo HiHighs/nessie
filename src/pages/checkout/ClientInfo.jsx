@@ -1,17 +1,26 @@
 import { useState } from 'react';
-import Header from '../../Components/Header/Header';
 import PropTypes from 'prop-types';
 
-function Address({ onNext }) {
+function ClientInfo({ onNext }) {
+  const [details, setDetails] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+  });
+
   const [address, setAddress] = useState({
-    name: '',
     street: '',
     city: '',
     zip: '',
     country: 'Country',
   });
 
-  function handleChange(e) {
+  function handleDetailsChange(e) {
+    const { name, value } = e.target;
+    setDetails((prev) => ({ ...prev, [name]: value }));
+  }
+
+  function handleAddressChange(e) {
     const { name, value } = e.target;
     setAddress((prev) => ({ ...prev, [name]: value }));
   }
@@ -19,7 +28,9 @@ function Address({ onNext }) {
   function handleNext() {
     // Validate address
     if (
-      !address.name ||
+      !details.firstName ||
+      !details.lastName ||
+      !details.email ||
       !address.street ||
       !address.city ||
       !address.zip ||
@@ -28,47 +39,63 @@ function Address({ onNext }) {
       alert('Please fill out all fields.');
       return;
     }
-    onNext(address);
+    onNext(details, address);
   }
 
   return (
     <div>
-      <Header />
-      <h2>Shipping Address</h2>
+      <h2>Personal Details</h2>
       <form>
         <input
-          name='name'
-          placeholder='Name'
-          value={address.name}
-          onChange={handleChange}
+          name='firstName'
+          placeholder='First name'
+          value={details.firstName}
+          onChange={handleDetailsChange}
           required
         />
+        <input
+          name='lastName'
+          placeholder='Last name'
+          value={details.lastName}
+          onChange={handleDetailsChange}
+          required
+        />
+        <input
+          name='email'
+          placeholder='Email'
+          value={details.email}
+          onChange={handleDetailsChange}
+          required
+        />
+      </form>
+      <h2>Shipping Address</h2>
+      <form>
         <input
           name='street'
           placeholder='Street'
           value={address.street}
-          onChange={handleChange}
+          onChange={handleAddressChange}
           required
         />
         <input
           name='city'
           placeholder='City'
           value={address.city}
-          onChange={handleChange}
+          onChange={handleAddressChange}
           required
         />
         <input
           name='zip'
           placeholder='ZIP Code'
           value={address.zip}
-          onChange={handleChange}
+          onChange={handleAddressChange}
           required
         />
         <select
           name='country'
           id='country'
           value={address.country}
-          onChange={handleChange}
+          onChange={handleAddressChange}
         >
           <option value='Country' disabled selected>
             Select a country
@@ -84,8 +111,8 @@ function Address({ onNext }) {
 }
 
 // Add PropTypes validation
-Address.propTypes = {
+ClientInfo.propTypes = {
   onNext: PropTypes.func.isRequired, // Ensures 'onNext' is passed and is a function
 };
 
-export default Address;
+export default ClientInfo;

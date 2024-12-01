@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import Navigation from '../Components/Navigation/Navigation';
 import styles from './Contact.module.css';
-import emailConfig from '../emailKey';
-import emailjs from 'emailjs-com';
 import Footer from '../Components/Footer/Footer';
 import send from '../assets/Buttons/send.png';
+import { sendContactEmail } from '../services/emailService/emailService';
 
 function Contact() {
   const [name, setName] = useState('');
@@ -16,22 +15,7 @@ function Contact() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        emailConfig.SERVICE_ID,
-        emailConfig.TEMPLATE_ID,
-        e.target,
-        emailConfig.PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setSubmitted(true);
-        },
-        (error) => {
-          console.error(error.text);
-        }
-      );
+    setSubmitted(sendContactEmail(e));
 
     setSubmitted(true);
     setName('');

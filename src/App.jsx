@@ -31,8 +31,8 @@ function App() {
 
 // Create a wrapper component to access `cart` and pass it to Checkout
 function CheckoutWithCart() {
-  const { cart } = useCart(); // Access cart from CartContext
-  return <Checkout cart={cart} />;
+  const { cart, totalAmount } = useCart(); // Access cart from CartContext
+  return <Checkout cart={cart} totalAmount={totalAmount} />;
 }
 
 export default App;

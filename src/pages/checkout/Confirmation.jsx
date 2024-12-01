@@ -1,16 +1,28 @@
 import PropTypes from 'prop-types';
 
-function Confirmation({ cart, address, payment, onBack, onConfirm }) {
+function Confirmation({
+  cart,
+  clientDetails,
+  clientAddress,
+  payment,
+  onBack,
+  onConfirm,
+}) {
   return (
     <div>
       <h2>Order Confirmation</h2>
+
+      <h3>Personal Info</h3>
+      <p>{clientDetails.firstName}</p>
+      <p>{clientDetails.lastName}</p>
+      <p>{clientDetails.email}</p>
+
       <h3>Address</h3>
-      <p>{address.name}</p>
-      <p>{address.street}</p>
+      <p>{clientAddress.street}</p>
       <p>
-        {address.city}, {address.zip}
+        {clientAddress.city}, {clientAddress.zip}
       </p>
-      <p>{address.country}</p>
+      <p>{clientAddress.country}</p>
 
       <h3>Payment</h3>
       <p>{payment.paymentMethod === 'creditCard' ? 'Credit Card' : 'PayPal'}</p>
@@ -38,13 +50,17 @@ Confirmation.propTypes = {
       quantity: PropTypes.number.isRequired,
     })
   ).isRequired, // Array of cart items, each with specific properties
-  address: PropTypes.shape({
-    name: PropTypes.string.isRequired,
+  clientDetails: PropTypes.shape({
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  }),
+  clientAddress: PropTypes.shape({
     street: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
     zip: PropTypes.string.isRequired,
     country: PropTypes.string.isRequired,
-  }).isRequired, // Address object with specific fields
+  }),
   payment: PropTypes.shape({
     paymentMethod: PropTypes.oneOf(['creditCard', 'paypal']).isRequired,
   }).isRequired, // Payment object, restricting to specific methods

@@ -1,18 +1,21 @@
 import { useState } from 'react';
-import Address from './Address';
 import Payment from './Payment';
 import Confirmation from './Confirmation';
 import Overview from './Overview';
 import PropTypes from 'prop-types';
 import Header from '../../Components/Header/Header';
+import { sendAdminOrderNotification } from '../../services/emailService/emailService';
+import ClientInfo from './ClientInfo';
 
-function Checkout({ cart }) {
+function Checkout({ cart, totalAmount }) {
   const [step, setStep] = useState(1);
-  const [address, setAddress] = useState(null);
+  const [clientDetails, setClientDetails] = useState(null);
+  const [clientAddress, setClientAddress] = useState(null);
   const [payment, setPayment] = useState(null);
 
-  function handleNextAddress(addressData) {
-    setAddress(addressData);
+  function handleNextClientInfo(detailsData, addressData) {
+    setClientDetails(detailsData);
+    setClientAddress(addressData);
     setStep(2);
   }
 
@@ -22,22 +25,28 @@ function Checkout({ cart }) {
   }
 
   function handleConfirmOrder() {
-    // Submit the order to the server
-    console.log({ cart, address, payment });
+    sendAdminOrderNotification(
+      clientDetails,
+      clientAddress,
+      cart,
+      totalAmount,
+      payment
+    );
     setStep(4);
   }
 
   return (
     <div>
       <Header />
-      {step === 1 && <Address onNext={handleNextAddress} />}
+      {step === 1 && <ClientInfo onNext={handleNextClientInfo} />}
       {step === 2 && (
         <Payment onBack={() => setStep(1)} onNext={handleNextPayment} />
       )}
       {step === 3 && (
         <Confirmation
           cart={cart}
-          address={address}
+          clientDetails={clientDetails}
+          clientAddress={clientAddress}
           payment={payment}
           onBack={() => setStep(2)}
           onConfirm={handleConfirmOrder}
@@ -58,6 +67,7 @@ Checkout.propTypes = {
       quantity: PropTypes.number.isRequired,
     })
   ).isRequired, // Array of cart items with specific structure
+  totalAmount: PropTypes.number.isRequired,
 };
 
 export default Checkout;
