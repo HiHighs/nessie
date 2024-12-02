@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'; // Use HashRouter
 import { CartProvider } from './Components/CartProvider/CartProvider'; // Keep the CartProvider import as is
 import { useCart } from './Components/CartContext/CartContext'; // Correct import for useCart
 import Home from './pages/Home';
@@ -13,7 +13,9 @@ import Checkout from './pages/checkout/Checkout';
 function App() {
   return (
     <CartProvider>
-      <BrowserRouter>
+      <Router>
+        {' '}
+        {/* Use HashRouter instead of BrowserRouter */}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='about' element={<About />} />
@@ -24,7 +26,7 @@ function App() {
           <Route path='checkout' element={<CheckoutWithCart />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </CartProvider>
   );
 }
