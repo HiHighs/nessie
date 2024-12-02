@@ -1,5 +1,5 @@
 .page {
-  height: 90vh;
+  margin-bottom: 4vh;
 }
 
 .pageContainer {
@@ -108,6 +108,10 @@
 }
 
 @media (max-width: 850px) {
+  .page {
+    margin-bottom: 2vh;
+  }
+
   .pageContainer {
     max-width: 500px;
   }

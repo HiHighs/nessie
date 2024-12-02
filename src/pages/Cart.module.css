@@ -1,6 +1,15 @@
+/* Make the whole page container use flexbox */
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the content area takes at least the full height of the viewport */
+}
+
+/* Cart section styling remains the same */
 .cart {
+  flex: 1; /* Ensures that the cart area grows to take available space */
   padding: 2rem;
-  max-width: 800px;
+  width: 800px;
   margin: 0 auto;
   opacity: 0;
   animation: fadeIn 1.5s ease-in forwards;
@@ -91,5 +100,19 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .cart {
+    width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cart {
+    width: 300px;
+    padding: 0;
   }
 }

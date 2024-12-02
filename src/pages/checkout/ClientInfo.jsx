@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './ClientInfo.module.css';
 import back from '../../assets/Buttons/back.png';
 import next from '../../assets/Buttons/next.png';
+import Footer from '../../Components/Footer/Footer';
 
 function ClientInfo({ onBack, onNext }) {
   const [details, setDetails] = useState({
@@ -55,79 +56,82 @@ function ClientInfo({ onBack, onNext }) {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.formsContainer}>
-        <div className={styles.left}>
-          <h1 className={styles.detailsTitle}>Personal Details</h1>
-          <form className={styles.detailsForm}>
-            <input
-              name='firstName'
-              placeholder='First name'
-              value={details.firstName}
-              onChange={handleDetailsChange}
-              required
-            />
-            <input
-              name='lastName'
-              placeholder='Last name'
-              value={details.lastName}
-              onChange={handleDetailsChange}
-              required
-            />
-            <input
-              name='email'
-              placeholder='Email'
-              value={details.email}
-              onChange={handleDetailsChange}
-              required
-            />
-          </form>
+    <>
+      <div className={styles.container}>
+        <div className={styles.formsContainer}>
+          <div className={styles.left}>
+            <h1 className={styles.detailsTitle}>Personal Details</h1>
+            <form className={styles.detailsForm}>
+              <input
+                name='firstName'
+                placeholder='First name'
+                value={details.firstName}
+                onChange={handleDetailsChange}
+                required
+              />
+              <input
+                name='lastName'
+                placeholder='Last name'
+                value={details.lastName}
+                onChange={handleDetailsChange}
+                required
+              />
+              <input
+                name='email'
+                placeholder='Email'
+                value={details.email}
+                onChange={handleDetailsChange}
+                required
+              />
+            </form>
+          </div>
+          <div className={styles.right}>
+            <h1 className={styles.addressTitle}>Shipping Address</h1>
+            <form className={styles.addressForm}>
+              <input
+                name='street'
+                placeholder='Street'
+                value={address.street}
+                onChange={handleAddressChange}
+                required
+              />
+              <input
+                name='city'
+                placeholder='City'
+                value={address.city}
+                onChange={handleAddressChange}
+                required
+              />
+              <input
+                name='zip'
+                placeholder='ZIP Code'
+                value={address.zip}
+                onChange={handleAddressChange}
+                required
+              />
+              <select
+                name='country'
+                id='country'
+                value={address.country}
+                onChange={handleAddressChange}
+              >
+                <option value='Country' disabled selected>
+                  Select a country
+                </option>
+                <option value='Belgium'>Belgium</option>
+                <option value='Netherlands'>The Netherlands</option>
+                <option value='Luxemburg'>Luxemburg</option>
+              </select>
+            </form>
+          </div>
         </div>
-        <div className={styles.right}>
-          <h1 className={styles.addressTitle}>Shipping Address</h1>
-          <form className={styles.addressForm}>
-            <input
-              name='street'
-              placeholder='Street'
-              value={address.street}
-              onChange={handleAddressChange}
-              required
-            />
-            <input
-              name='city'
-              placeholder='City'
-              value={address.city}
-              onChange={handleAddressChange}
-              required
-            />
-            <input
-              name='zip'
-              placeholder='ZIP Code'
-              value={address.zip}
-              onChange={handleAddressChange}
-              required
-            />
-            <select
-              name='country'
-              id='country'
-              value={address.country}
-              onChange={handleAddressChange}
-            >
-              <option value='Country' disabled selected>
-                Select a country
-              </option>
-              <option value='Belgium'>Belgium</option>
-              <option value='Netherlands'>The Netherlands</option>
-              <option value='Luxemburg'>Luxemburg</option>
-            </select>
-          </form>
+        <div className={styles.buttonsContainer}>
+          <img src={back} className={styles.back} onClick={onBack} />
+          <img src={next} className={styles.next} onClick={handleNext} />
         </div>
       </div>
-      <div className={styles.buttonsContainer}>
-        <img src={back} className={styles.back} onClick={onBack} />
-        <img src={next} className={styles.next} onClick={handleNext} />
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 

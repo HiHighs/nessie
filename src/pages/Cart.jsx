@@ -1,5 +1,6 @@
 import { useCart } from '../Components/CartContext/CartContext';
 import Navigation from '../Components/Navigation/Navigation';
+import Footer from '../Components/Footer/Footer';
 import styles from './Cart.module.css';
 import clear from '../assets/Buttons/clearcart.png';
 import checkout from '../assets/Buttons/checkout.png';
@@ -35,57 +36,62 @@ function Cart() {
   }
 
   return (
-    <div className={styles.cart}>
+    <div className={styles.pageContainer}>
+      {' '}
+      {/* Apply pageContainer here */}
       <Navigation />
-      <h1>Your Cart</h1>
-      <div className={styles.cartItems}>
-        {cart.length === 0 ? (
-          <p>Your cart is empty.</p>
-        ) : (
-          cart.map((product) => (
-            <div key={product.id} className={styles.cartItem}>
-              <img
-                src={product.image}
-                alt={product.name}
-                className={styles.cartImage}
-              />
-              <div className={styles.cartDetails}>
-                <h3 className={styles.productName}>{product.name}</h3>
-                <p>€{product.price}</p>
-                <p>Quantity: {product.quantity}</p>
+      <div className={styles.cart}>
+        <h1>Your Cart</h1>
+        <div className={styles.cartItems}>
+          {cart.length === 0 ? (
+            <p>Your cart is empty.</p>
+          ) : (
+            cart.map((product) => (
+              <div key={product.id} className={styles.cartItem}>
                 <img
-                  className={styles.remove}
-                  src={remove}
-                  onClick={() => handleRemove(product.id, product.name)}
-                  alt='Remove'
+                  src={product.image}
+                  alt={product.name}
+                  className={styles.cartImage}
                 />
+                <div className={styles.cartDetails}>
+                  <h3 className={styles.productName}>{product.name}</h3>
+                  <p>€{product.price}</p>
+                  <p>Quantity: {product.quantity}</p>
+                  <img
+                    className={styles.remove}
+                    src={remove}
+                    onClick={() => handleRemove(product.id, product.name)}
+                    alt='Remove'
+                  />
+                </div>
               </div>
+            ))
+          )}
+        </div>
+
+        {cart.length > 0 && (
+          <>
+            <div className={styles.totalAmount}>
+              <h2>Total: €{totalAmount.toFixed(2)}</h2>
             </div>
-          ))
+            <div className={styles.cartActions}>
+              <img
+                className={styles.clearCart}
+                src={clear}
+                onClick={handleClearCart}
+                alt='Clear cart'
+              />
+              <img
+                className={styles.checkout}
+                src={checkout}
+                onClick={handleCheckout}
+                alt='Checkout'
+              />
+            </div>
+          </>
         )}
       </div>
-
-      {cart.length > 0 && (
-        <>
-          <div className={styles.totalAmount}>
-            <h2>Total: €{totalAmount.toFixed(2)}</h2>
-          </div>
-          <div className={styles.cartActions}>
-            <img
-              className={styles.clearCart}
-              src={clear}
-              onClick={handleClearCart}
-              alt='Clear cart'
-            />
-            <img
-              className={styles.checkout}
-              src={checkout}
-              onClick={handleCheckout}
-              alt='Checkout'
-            />
-          </div>
-        </>
-      )}
+      <Footer />
     </div>
   );
 }

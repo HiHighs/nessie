@@ -10,6 +10,13 @@
   animation: fadeIn 1.5s ease-in forwards;
 }
 
+.footerDiv {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 2vh;
+}
+
 @media (max-width: 400px) {
   .container {
     max-width: 325px;

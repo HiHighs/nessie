@@ -4,6 +4,7 @@
   max-width: 900px;
   padding: 2vh 6vw;
   margin-top: 6vh;
+  margin-bottom: 4vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,6 +100,7 @@
 @media (max-width: 950px) {
   .container {
     max-width: 400px;
+    margin-bottom: 2vh;
   }
 
   .formsContainer {
