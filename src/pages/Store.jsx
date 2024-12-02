@@ -4,6 +4,7 @@ import Footer from '../Components/Footer/Footer';
 import CartIcon from '../Components/CartIcon/CartIcon'; // Import CartIcon
 import styles from './Store.module.css';
 import Product from '../Components/Product/Product';
+import { useState } from 'react';
 
 // Mock Product Data
 const products = [
@@ -29,12 +30,36 @@ const products = [
 
 function Store() {
   const { addToCart, removeFromCart } = useCart();
+  const [isUnderstood, setIsUnderstood] = useState(false);
 
   return (
     <div>
       <Navigation />
       <CartIcon />
       <h1 className={styles.fadeIn}>Store</h1>
+
+      {!isUnderstood && (
+        <div className={styles.important}>
+          <p className={styles.message}>
+            <b>IMPORTANT</b>: I’m working on implementing automatic payments and
+            delivery options. <br />
+            For now, after you place your order, you’ll receive an email with
+            payment instructions. <br />
+            Once I receive your payment, I’ll ship your order as soon as
+            possible.
+            <br />
+            Thank you for your understanding!
+            <br />– Nessie :)
+          </p>
+          <button
+            className={styles.understood}
+            onClick={() => setIsUnderstood(true)}
+          >
+            Understood
+          </button>
+        </div>
+      )}
+
       <div className={styles.productList}>
         {products.map((product) => (
           <Product
@@ -45,7 +70,7 @@ function Store() {
           />
         ))}
       </div>
-      {/* <h1>COMING SOON</h1> */}
+
       <Footer />
     </div>
   );

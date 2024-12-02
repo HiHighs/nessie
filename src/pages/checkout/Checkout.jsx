@@ -4,7 +4,10 @@ import Confirmation from './Confirmation';
 import Overview from './Overview';
 import PropTypes from 'prop-types';
 import Header from '../../Components/Header/Header';
-import { sendAdminOrderNotification } from '../../services/emailService/emailService';
+import {
+  sendOrderConfirmationEmail,
+  sendAdminOrderNotification,
+} from '../../services/emailService/emailService';
 import ClientInfo from './ClientInfo';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,7 +21,9 @@ function Checkout({ cart, totalAmount }) {
   function handleNextClientInfo(detailsData, addressData) {
     setClientDetails(detailsData);
     setClientAddress(addressData);
-    setStep(2);
+    // TODO payment options
+    // setStep(2);
+    setStep(3);
   }
 
   function handleNextPayment(paymentData) {
@@ -27,13 +32,9 @@ function Checkout({ cart, totalAmount }) {
   }
 
   function handleConfirmOrder() {
-    sendAdminOrderNotification(
-      clientDetails,
-      clientAddress,
-      cart,
-      totalAmount,
-      payment
-    );
+    sendOrderConfirmationEmail(clientDetails, clientAddress, cart, totalAmount);
+    // payment
+    sendAdminOrderNotification(clientDetails, clientAddress, cart, totalAmount);
     setStep(4);
   }
 

@@ -1,10 +1,17 @@
 import PropTypes from 'prop-types';
 
+// function Confirmation({
+//   cart,
+//   clientDetails,
+//   clientAddress,
+//   payment,
+//   onBack,
+//   onConfirm,
+// }) {
 function Confirmation({
   cart,
   clientDetails,
   clientAddress,
-  payment,
   onBack,
   onConfirm,
 }) {
@@ -24,8 +31,14 @@ function Confirmation({
       </p>
       <p>{clientAddress.country}</p>
 
+      {/* <h3>Payment</h3>
+      <p>{payment.paymentMethod === 'creditCard' ? 'Credit Card' : 'PayPal'}</p> */}
+
       <h3>Payment</h3>
-      <p>{payment.paymentMethod === 'creditCard' ? 'Credit Card' : 'PayPal'}</p>
+      <p>
+        You’ll receive an email with payment instructions. <br />
+        Once I receive your payment, I’ll ship your order as soon as possible.
+      </p>
 
       <h3>Items</h3>
       {cart.map((item) => (
@@ -61,11 +74,16 @@ Confirmation.propTypes = {
     zip: PropTypes.string.isRequired,
     country: PropTypes.string.isRequired,
   }),
-  payment: PropTypes.shape({
-    paymentMethod: PropTypes.oneOf(['creditCard', 'paypal']).isRequired,
-  }).isRequired, // Payment object, restricting to specific methods
-  onBack: PropTypes.func.isRequired, // Function to handle "Back"
-  onConfirm: PropTypes.func.isRequired, // Function to handle "Place Order"
+  // payment: PropTypes.shape({
+  //   paymentMethod: PropTypes.oneOf([
+  //     'Payconiq',
+  //     'Bancontact',
+  //     'CreditCard',
+  //     'paypal',
+  //   ]).isRequired,
+  // }).isRequired,
+  onBack: PropTypes.func.isRequired,
+  onConfirm: PropTypes.func.isRequired,
 };
 
 export default Confirmation;

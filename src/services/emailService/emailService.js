@@ -35,20 +35,27 @@ export function testEmail() {
   );
 }
 
-export function sendOrderConfirmationEmail(orderDetails, clientEmail) {
+export function sendOrderConfirmationEmail(
+  clientDetails,
+  clientAddress,
+  cart,
+  totalAmount
+) {
   const templateParams = {
-    to_name: orderDetails.clientName,
-    to_email: clientEmail,
-    order_items: JSON.stringify(orderDetails.items),
-    total_amount: orderDetails.totalAmount,
+    client_name: `${clientDetails.firstName} ${clientDetails.lastName}`,
+    to_email: clientDetails.email,
+    date: new Date(),
+    order_items: formatCart(cart),
+    client_address: `${clientAddress.street}, ${clientAddress.zip} ${clientAddress.city}, ${clientAddress.country}`,
+    total_amount: totalAmount,
     // Add any other fields required for your template
   };
 
   return emailjs.send(
-    'your_service_id',
-    'your_template_id',
+    emailConfigOrder.SERVICE_ID,
+    emailConfigOrder.TEMPLATE_ID_CLIENT,
     templateParams,
-    'your_user_id'
+    emailConfigOrder.PUBLIC_KEY
   );
 }
 
@@ -57,8 +64,8 @@ export function sendAdminOrderNotification(
   clientDetails,
   clientAddress,
   cart,
-  totalAmount,
-  payment
+  totalAmount
+  // payment
 ) {
   const templateParams = {
     client_name: `${clientDetails.firstName} ${clientDetails.lastName}`,
@@ -66,11 +73,11 @@ export function sendAdminOrderNotification(
     order_items: formatCart(cart),
     client_address: `${clientAddress.street}, ${clientAddress.zip} ${clientAddress.city}, ${clientAddress.country}`,
     total_amount: totalAmount,
-    payment_method: payment.paymentMethod,
+    // payment_method: payment.paymentMethod,
   };
   return emailjs.send(
     emailConfigOrder.SERVICE_ID,
-    emailConfigOrder.TEMPLATE_ID,
+    emailConfigOrder.TEMPLATE_ID_ADMIN,
     templateParams,
     emailConfigOrder.PUBLIC_KEY
   );
