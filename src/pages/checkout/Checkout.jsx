@@ -56,7 +56,8 @@ function Checkout({ cart, totalAmount }) {
           clientDetails={clientDetails}
           clientAddress={clientAddress}
           payment={payment}
-          onBack={() => setStep(2)}
+          onBack={() => setStep(1)}
+          // onBack={() => setStep(2)}
           onConfirm={handleConfirmOrder}
         />
       )}

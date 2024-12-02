@@ -1,24 +1,53 @@
 .container {
+  flex: 1;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 2vh 6vw;
+  margin-top: 6vh;
   display: flex;
-  flex-direction: column; /* Keeps content stacked vertically */
-  align-items: center; /* Centers child elements horizontally */
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
   opacity: 0;
   animation: fadeIn 1.5s ease-in forwards;
 }
 
-.detailsTitle,
-.addressTitle {
-  margin-bottom: 2vh;
+.formsContainer {
+  display: flex;
+  justify-content: space-between; /* Ensure forms are side by side */
+  width: 100%;
+  gap: 5vw;
+}
+
+.left,
+.right {
+  flex: 1; /* Ensure equal width for forms */
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 1vh;
+  padding-bottom: 3vh;
 }
 
 .detailsForm,
 .addressForm {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers inputs horizontally */
-  gap: 15px; /* Adds spacing between inputs */
+  align-items: center;
+  gap: 15px;
   width: 100%;
   margin-bottom: 5vh;
+}
+
+.addressForm {
+  align-items: flex-start;
 }
 
 .detailsForm input,
@@ -39,17 +68,60 @@
   background-color: rgb(228, 228, 228);
 }
 
-.detailsForm select,
 .addressForm select {
-  max-width: 330px;
+  max-width: 200px;
+  width: 100%;
+  text-align: left;
 }
 
-/* fade in */
+.back,
+.next {
+  width: auto;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.back:hover,
+.next:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 950px) {
+  .container {
+    max-width: 400px;
+  }
+
+  .formsContainer {
+    display: block;
+  }
+
+  .right {
+    margin-top: 50px;
+  }
+
+  .addressForm {
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: 325px;
+  }
+
+  .detailsForm input,
+  .addressForm input,
+  .addressForm select {
+    width: 88%;
   }
 }

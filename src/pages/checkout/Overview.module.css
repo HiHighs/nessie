@@ -1,0 +1,15 @@
+.container {
+  margin: 0 auto;
+  margin-top: 5vh;
+  max-width: 350px;
+  border-radius: 8px;
+  padding: 2vh 2vw 3vh 2vw;
+  background-color: #9ce400;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 400px) {
+  .container {
+    max-width: 325px;
+  }
+}

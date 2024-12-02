@@ -4,6 +4,7 @@
   margin: 0 auto;
   opacity: 0;
   animation: fadeIn 1.5s ease-in forwards;
+  padding-top: 0;
 }
 
 .cartItems {

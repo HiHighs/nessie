@@ -41,7 +41,7 @@ function Store() {
       {!isUnderstood && (
         <div className={styles.important}>
           <p className={styles.message}>
-            <b>IMPORTANT</b>: I’m working on implementing automatic payments and
+            <b>IMPORTANT:</b> I’m working on implementing automatic payments and
             delivery options. <br />
             For now, after you place your order, you’ll receive an email with
             payment instructions. <br />
