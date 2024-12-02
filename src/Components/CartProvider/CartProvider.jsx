@@ -1,9 +1,25 @@
-import { useState, useMemo } from 'react';
-import PropTypes from 'prop-types'; // For prop validation
-import { CartContext } from '../CartContext/CartContext'; // Import CartContext from CartContext.jsx
+import { useState, useMemo, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { CartContext } from '../CartContext/CartContext';
 
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState([]); // Initial empty cart
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  // Load cart from localStorage on initial render
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
+
+  // Update localStorage whenever the cart changes (but skip the first render)
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   function addToCart(product, quantity = 1) {
     setCart((prevCart) => {

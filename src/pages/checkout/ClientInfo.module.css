@@ -18,14 +18,14 @@
 
 .formsContainer {
   display: flex;
-  justify-content: space-between; /* Ensure forms are side by side */
+  justify-content: space-between;
   width: 100%;
   gap: 5vw;
 }
 
 .left,
 .right {
-  flex: 1; /* Ensure equal width for forms */
+  flex: 1;
 }
 
 .buttonsContainer {

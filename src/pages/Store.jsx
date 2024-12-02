@@ -1,7 +1,7 @@
 import { useCart } from '../Components/CartContext/CartContext';
 import Navigation from '../Components/Navigation/Navigation';
 import Footer from '../Components/Footer/Footer';
-import CartIcon from '../Components/CartIcon/CartIcon'; // Import CartIcon
+import CartIcon from '../Components/CartIcon/CartIcon';
 import styles from './Store.module.css';
 import Product from '../Components/Product/Product';
 import { useState } from 'react';
@@ -65,7 +65,7 @@ function Store() {
           <Product
             key={product.id}
             product={product}
-            onAddToCart={(quantity) => addToCart(product, quantity)} // Add product and quantity
+            onAddToCart={(quantity) => addToCart(product, quantity)}
             onRemoveFromCart={() => removeFromCart(product.id)}
           />
         ))}

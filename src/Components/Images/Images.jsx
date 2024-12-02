@@ -7,7 +7,9 @@ function Images({ folder, className }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [fadeInClass, setFadeInClass] = useState(''); // State to trigger fade-in
 
-  let images, thumbnails;
+  let images = {};
+  let thumbnails = {};
+
   switch (folder) {
     case 'Work':
       images = import.meta.glob('../../assets/Work/*.{png,jpg,jpeg,svg}', {
@@ -29,8 +31,7 @@ function Images({ folder, className }) {
       break;
     default:
       console.warn(`Unknown folder: ${folder}`);
-      images = {};
-      thumbnails = {};
+      break;
   }
 
   const imageKeys = Object.keys(images).map((path) => ({
@@ -103,7 +104,7 @@ function Images({ folder, className }) {
             <img
               src={imageKeys[selectedIndex].full}
               alt={`Enlarged view ${selectedIndex + 1}`}
-              className={`${styles.modalImage} ${fadeInClass}`} // Add fade-in class
+              className={`${styles.modalImage} ${fadeInClass}`}
             />
             <button
               className={`${styles.arrow} ${styles.arrowLeft}`}

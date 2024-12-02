@@ -32,6 +32,15 @@ function Navigation() {
     return () => window.removeEventListener('resize', resize);
   }, [mobileMenuOpen]);
 
+  // When mobile menu is open, disable scrolling on the body to prevent background scrolling
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [mobileMenuOpen]);
+
   return (
     <>
       <Header />
@@ -46,7 +55,7 @@ function Navigation() {
           <nav className={styles.nav}>
             <ul>
               <li>
-                <NavLink to='/about'>
+                <NavLink to='/about' onClick={toggleMobileMenu}>
                   <img src={about} className={styles.category} />
                 </NavLink>
               </li>

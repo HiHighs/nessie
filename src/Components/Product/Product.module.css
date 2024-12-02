@@ -100,16 +100,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem; /* Add spacing between image and details */
-  flex-wrap: wrap; /* For responsiveness */
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .modalBody {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  gap: 3rem; /* Add spacing between image and details */
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
 }
 
 .modalImage {
@@ -121,11 +121,11 @@
 .modalDetails {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers content vertically */
-  align-items: center; /* Centers content horizontally */
+  justify-content: center;
+  align-items: center;
   width: 250px;
-  text-align: center; /* Align text in the center */
-  gap: 1rem; /* Add spacing between elements */
+  text-align: center;
+  gap: 1rem;
   border-radius: 5px;
   border: 1px solid #ddd;
 }

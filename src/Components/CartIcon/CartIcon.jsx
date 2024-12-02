@@ -21,10 +21,7 @@ function CartIcon() {
       <div className={styles.cartIcon}>
         <img src={icon} alt='Cart' />
         {totalQuantity > 0 && (
-          <span
-            key={totalQuantity} // This will reset the badge every time the quantity changes
-            className={styles.badge}
-          >
+          <span key={totalQuantity} className={styles.badge}>
             {totalQuantity}
           </span>
         )}

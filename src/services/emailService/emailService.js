@@ -44,11 +44,10 @@ export function sendOrderConfirmationEmail(
   const templateParams = {
     client_name: `${clientDetails.firstName} ${clientDetails.lastName}`,
     to_email: clientDetails.email,
-    date: new Date(),
+    date: new Date().toLocaleDateString(),
     order_items: formatCart(cart),
     client_address: `${clientAddress.street}, ${clientAddress.zip} ${clientAddress.city}, ${clientAddress.country}`,
     total_amount: totalAmount,
-    // Add any other fields required for your template
   };
 
   return emailjs.send(
@@ -59,7 +58,6 @@ export function sendOrderConfirmationEmail(
   );
 }
 
-// export function sendAdminOrderNotification(orderDetails) {
 export function sendAdminOrderNotification(
   clientDetails,
   clientAddress,

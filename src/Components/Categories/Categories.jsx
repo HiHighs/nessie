@@ -3,39 +3,32 @@ import styles from './Categories.module.css';
 import PropTypes from 'prop-types';
 
 function Categories({ className }) {
+  // Defining categories in an array to reduce repetition
+  const categories = [
+    { to: '/about', label: 'About me', className: styles.imageContainer1 },
+    { to: '/work', label: 'Work', className: styles.imageContainer2 },
+    { to: '/Store', label: 'Store', className: styles.imageContainer3 },
+    { to: '/contact', label: 'Contact', className: styles.imageContainer4 },
+  ];
+
   return (
     <div className={`${styles.grid} ${className}`}>
-      <Link
-        to='/about'
-        className={`${styles.imageContainer} ${styles.imageContainer1}`}
-      >
-        <h3>About me</h3>
-      </Link>
-      <Link
-        to='/work'
-        className={`${styles.imageContainer} ${styles.imageContainer2}`}
-      >
-        <h3>Work</h3>
-      </Link>
-      <Link
-        to='/Store'
-        className={`${styles.imageContainer} ${styles.imageContainer3}`}
-      >
-        <h3>Store</h3>
-      </Link>
-      <Link
-        to='/contact'
-        className={`${styles.imageContainer} ${styles.imageContainer4}`}
-      >
-        <h3>Contact</h3>
-      </Link>
+      {categories.map((category, index) => (
+        <Link
+          key={index}
+          to={category.to}
+          className={`${styles.imageContainer} ${category.className}`}
+        >
+          <h3>{category.label}</h3>
+        </Link>
+      ))}
     </div>
   );
 }
 
 // Define prop types for validation
 Categories.propTypes = {
-  className: PropTypes.string, // Specify that className should be a string
+  className: PropTypes.string,
 };
 
 export default Categories;

@@ -28,7 +28,6 @@
   text-decoration: none;
 }
 
-/* responsive */
 .container {
   background-color: black;
 }
@@ -48,7 +47,7 @@
 }
 
 .mobileMenuToggle div {
-  font-size: 3rem; /* Adjust size as needed */
+  font-size: 3rem;
   cursor: pointer;
 }
 
@@ -76,14 +75,14 @@
   border-radius: 10px;
   text-align: center;
   z-index: 1000;
-  opacity: 0; /* Set opacity to 0 initially */
-  animation: fadeIn 0.8s forwards; /* Apply fadeIn animation */
-  pointer-events: none; /* Prevent interaction when hidden */
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+  pointer-events: none;
 }
 
 .mobileMenuOverlay.visible {
-  opacity: 1; /* Make visible when the menu is open */
-  pointer-events: all; /* Allow interaction when visible */
+  opacity: 1;
+  pointer-events: all;
 }
 
 .mobileMenuOverlay ul {
@@ -111,16 +110,6 @@
   overflow: hidden;
 }
 
-/* Add fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .category {
   width: auto;
   height: 40px;
@@ -132,10 +121,21 @@
 }
 
 .mobileMenuWrapper {
-  margin-bottom: 10vh; /* Adjust the value as needed */
+  margin-bottom: 10vh;
 }
 
 .mobileCategory {
   width: auto;
   height: 40px;
+  transition: transform 0.3s ease;
+}
+
+/* Add fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

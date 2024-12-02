@@ -23,7 +23,7 @@ function Product({ product, onAddToCart }) {
         className={styles.productImage}
         src={product.image}
         alt={product.name}
-        onClick={openModal} // Open modal when the image is clicked
+        onClick={openModal}
       />
       <h3 className={styles.productName}>{product.name}</h3>
       <p className={styles.productPrice}>€{product.price}</p>
@@ -45,7 +45,6 @@ function Product({ product, onAddToCart }) {
         onClick={handleAddToCart}
       />
 
-      {/* Modal for enlarged image */}
       {/* Modal for enlarged image */}
       {isModalOpen && (
         <div className={styles.modal} onClick={closeModal}>

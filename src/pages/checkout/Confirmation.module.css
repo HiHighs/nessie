@@ -99,7 +99,7 @@
 /* Responsive */
 @media (max-width: 1030px) {
   .gridContainer {
-    grid-template-columns: repeat(1, 1fr); /* Two columns */
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .pageContainer {

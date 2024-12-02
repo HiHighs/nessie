@@ -12,19 +12,15 @@ import contact from '../assets/Categories/contact_text.png';
 import Header from '../Components/Header/Header';
 
 function Home() {
-  // State to store the window width
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  // Update windowWidth when the window is resized
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    // Add event listener for resize
     window.addEventListener('resize', handleResize);
 
-    // Clean up the event listener on unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };

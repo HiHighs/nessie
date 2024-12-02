@@ -1,10 +1,9 @@
 .footer {
   font-size: 1.2em;
   text-align: center;
-  padding-bottom: 2vh;
-  padding-top: 3vh;
-  opacity: 0; /* fade-in */
-  animation: fadeIn 1.5s ease-in forwards; /* fade-in */
+  padding: 3vh 0 2vh;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
 }
 
 /* Add fade-in animation */

@@ -1,34 +1,36 @@
 .logo {
-  width: auto; /* Adjust the size */
-  height: 60px; /* Maintain aspect ratio */
-  object-fit: contain; /* Ensure proper scaling */
-  transition: transform 0.3s ease; /* Optional: Add hover effects */
-  padding-top: 3em;
-  opacity: 0; /* fade-in */
-  animation: fadeIn 1.5s ease-in forwards; /* fade-in */
-
+  height: 60px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
   display: block;
-  margin: 1rem auto; /* Centers logo horizontally */
+  margin: 1rem auto;
 }
 
 .logo:hover {
-  transform: scale(1.1); /* Slight zoom effect on hover */
+  transform: scale(1.1);
 }
 
 a {
   text-decoration: none;
 }
 
+.logoLink {
+  display: inline-block;
+  padding-top: 3em;
+}
+
 /* responsive */
 @media (max-width: 1200px) {
-  .title {
-    font-size: 4.2em;
+  .logo {
+    height: 50px;
   }
 }
 
 @media (max-width: 1000px) {
-  .title {
-    font-size: 4.8em;
+  .logo {
+    height: 45px;
   }
 }
 

@@ -1,6 +1,6 @@
 .title {
-  opacity: 0; /* fade in */
-  animation: fadeIn 1.5s ease-in forwards; /* fade in */
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
   margin-top: -5px;
 }
 
@@ -14,13 +14,13 @@
   flex: 1;
   margin: 0 auto;
   max-width: 980px;
-  padding: 0vh 6vw; /* Increased padding for more spacing */
+  padding: 0vh 6vw;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  box-sizing: border-box; /* Ensure padding doesn't add extra width */
-  opacity: 0; /* fade in */
-  animation: fadeIn 1.5s ease-in forwards; /* fade in */
+  box-sizing: border-box;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
 }
 
 .left {
@@ -32,8 +32,8 @@
 .right {
   text-align: left;
   flex: 1;
-  max-width: 100%; /* Ensure the right div uses all available width */
-  box-sizing: border-box; /* Prevent content from overflowing */
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 footer {
@@ -42,13 +42,13 @@ footer {
 
 .formElement input,
 .formElement textarea {
-  width: 100%; /* Ensures input fields take the full width of the right div */
+  width: 100%;
   margin-bottom: 25px;
-  padding: 12px; /* Increased padding for better UX */
+  padding: 12px;
   border: 1px solid transparent;
   border-bottom: 1px solid black;
-  font-size: 0.95rem; /* Slightly larger font for readability */
-  box-sizing: border-box; /* Prevent padding from increasing width */
+  font-size: 0.95rem;
+  box-sizing: border-box;
 }
 
 .formElement textarea {
@@ -91,12 +91,12 @@ footer {
 
 .right .back {
   background-color: white;
-  padding: 10px 20px; /* Increased button padding */
+  padding: 10px 20px;
   border: 0px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
-  font-size: 1rem; /* Larger font for buttons */
+  font-size: 1rem;
   background-color: lightgray;
   transition: background-color 0.5s ease;
 }
@@ -115,33 +115,38 @@ footer {
   cursor: pointer;
 }
 
-/* Media Query for Smaller Screens */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* Stack the divs vertically */
-    padding-top: 0vh; /* Slightly reduce padding on smaller screens */
-  }
-
-  .left {
-    margin-right: 0; /* Remove the right margin for better centering */
-  }
-
-  .right {
-    width: 100%; /* Allow the right div to take the full width */
-  }
-
-  .formElement input,
-  .formElement textarea {
-    width: 100%; /* Maintain full width for the form fields */
+/* responsive */
+@media (max-width: 1000px) {
+  .title {
+    margin-top: -20px;
   }
 }
 
-/* Media Query for Very Small Screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding-top: 0vh;
+  }
+
+  .left {
+    margin-right: 0;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .formElement input,
+  .formElement textarea {
+    width: 100%;
+  }
+}
+
 @media (max-width: 450px) {
   .formElement input,
   .formElement textarea {
-    font-size: 0.85rem; /* Slightly reduce font size for better fit */
-    padding: 10px; /* Adjust padding for smaller input fields */
+    font-size: 0.85rem;
+    padding: 10px;
   }
 
   .send {
@@ -156,12 +161,5 @@ footer {
   }
   to {
     opacity: 1;
-  }
-}
-
-/* responsive */
-@media (max-width: 1000px) {
-  .title {
-    margin-top: -20px;
   }
 }

@@ -34,7 +34,6 @@
   width: auto;
   height: 40px;
   margin: 1vh 0;
-  /* transition: transform 0.5s ease; */
 }
 
 .mobileCategory:hover {
@@ -63,7 +62,7 @@
 
 @media (max-width: 1000px) {
   .hey {
-    content: url('../assets/Home/heymobile.png'); /* Specify the smaller image */
+    content: url('../assets/Home/heymobile.png');
     height: 170px;
     width: auto;
   }

@@ -4,14 +4,14 @@
   margin: 0 auto;
   gap: 12em;
   padding: 7vh 8vw;
-  flex-direction: row; /* Default: image and text side by side */
-  align-items: flex-start; /* Align items at the top */
-  justify-content: space-between; /* Space out the items horizontally */
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .nessie {
   width: 33%;
-  height: auto; /* Maintain aspect ratio */
+  height: auto;
   padding-top: 1.2em;
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
@@ -62,35 +62,34 @@
   }
 }
 
-/* Responsive Layout for Smaller Screens */
+/* Responsive  */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column; /* Stack image and text vertically */
-    gap: 3em; /* Reduce the gap between stacked items */
-    align-items: center; /* Center-align items for better presentation */
+    flex-direction: column;
+    gap: 3em;
+    align-items: center;
     padding-top: 0;
   }
 
-  /* Make sure the text comes before the image by setting the order */
   .text {
-    order: 1; /* Text comes first */
-    text-align: center; /* Center-align text content */
-    padding: 0 2vw; /* Add some padding for better spacing */
+    order: 1;
+    text-align: center;
+    padding: 0 2vw;
   }
 
   .nessie {
-    order: 2; /* Image comes after the text */
-    width: 80%; /* Make the image occupy a larger portion of the screen */
-    height: auto; /* Maintain aspect ratio */
+    order: 2;
+    width: 80%;
+    height: auto;
   }
 
   .text h1 {
-    font-size: 1.8em; /* Slightly increase the title size for readability */
+    font-size: 1.8em;
   }
 
   .text p {
-    font-size: 1rem; /* Increase font size for better legibility */
-    line-height: 1.5em; /* Adjust line spacing */
+    font-size: 1rem;
+    line-height: 1.5em;
   }
 
   .text .first {
@@ -98,21 +97,20 @@
   }
 }
 
-/* Ultra-Small Screens (e.g., phones) */
 @media (max-width: 450px) {
   .container {
-    padding: 5vh 3vw; /* Reduce padding for smaller viewports */
+    padding: 5vh 3vw;
     padding-top: 0;
   }
 
   .nessie {
-    width: 100%; /* Let the image take full width */
-    padding-top: 0; /* Remove extra padding above the image */
+    width: 100%;
+    padding-top: 0;
   }
 
   .text p {
-    font-size: 0.9rem; /* Slightly smaller font for tight spaces */
-    line-height: 1.4em; /* Adjust line height for tighter layout */
+    font-size: 0.9rem;
+    line-height: 1.4em;
   }
 
   .text .first {

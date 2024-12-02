@@ -29,9 +29,9 @@
 .cartDetails {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center children horizontally */
+  align-items: center;
   width: 160px;
-  text-align: center; /* Optional: Align text */
+  text-align: center;
 }
 
 .cartActions {
