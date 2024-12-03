@@ -205,12 +205,11 @@
 
 @media (max-width: 725px) {
   .modalImage {
-    margin-top: 6vh;
-    height: 60vh; /* Adjusting the modal image size */
+    width: 95vw;
   }
 
   .modalDetails {
-    width: 200px; /* Reducing width in smaller screens */
+    display: none;
   }
 
   .modalBody {
