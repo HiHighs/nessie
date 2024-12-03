@@ -84,7 +84,8 @@ export function sendAdminOrderNotification(
 function formatCart(cart) {
   let result = '';
   cart.forEach(
-    (item) => (result += `${item.quantity} ${item.name} ${item.price}\n`)
+    (item) =>
+      (result += `${item.quantity} ${item.name} (${item.type}) ${item.price}\n`)
   );
   return result;
 }

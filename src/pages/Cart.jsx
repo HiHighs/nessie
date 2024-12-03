@@ -55,7 +55,8 @@ function Cart() {
                 />
                 <div className={styles.cartDetails}>
                   <h3 className={styles.productName}>{product.name}</h3>
-                  <p>€{product.price}</p>
+                  <h2 className={styles.productType}>{product.type}</h2>
+                  <p className={styles.productPrice}>€{product.price}</p>
                   <p>Quantity: {product.quantity}</p>
                   <img
                     className={styles.remove}

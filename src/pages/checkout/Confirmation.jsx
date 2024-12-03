@@ -51,7 +51,7 @@ function Confirmation({
                 <h3>Items</h3>
                 {cart.map((item) => (
                   <p key={item.id}>
-                    {item.name} - €{item.price} x {item.quantity}
+                    {item.name} ({item.type}) - €{item.price} x {item.quantity}
                   </p>
                 ))}
               </div>
