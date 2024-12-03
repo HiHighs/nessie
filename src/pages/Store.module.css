@@ -1,11 +1,10 @@
 .productList {
-  display: flex;
+  display: grid;
   gap: 2rem;
   padding: 1rem;
   max-width: 1200px;
-  width: fit-content;
   margin: 0 auto;
-
+  grid-template-columns: repeat(3, 1fr); /* 3 products per row */
   opacity: 0;
   animation: fadeIn 1.5s ease-in forwards;
 }

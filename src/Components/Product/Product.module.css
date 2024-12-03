@@ -24,7 +24,13 @@
 .productName {
   font-size: 1.2rem;
   font-weight: bold;
-  margin: 1rem 0;
+  margin: 1rem 0 0 0;
+}
+
+.productType {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
 }
 
 .productPrice {

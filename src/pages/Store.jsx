@@ -5,28 +5,7 @@ import CartIcon from '../Components/CartIcon/CartIcon';
 import styles from './Store.module.css';
 import Product from '../Components/Product/Product';
 import { useState } from 'react';
-
-// Mock Product Data
-const products = [
-  {
-    id: 1,
-    name: 'Flowers White',
-    price: 29.99,
-    image: '/assets/Store/1_flowerswhite.png',
-  },
-  {
-    id: 2,
-    name: 'Flowers Black',
-    price: 49.99,
-    image: '/assets/Store/2_flowersblack.png',
-  },
-  {
-    id: 3,
-    name: 'Nessie',
-    price: 19.99,
-    image: '/assets/Store/3_nessie.png',
-  },
-];
+import { products } from '../services/store/products.js';
 
 function Store() {
   const { addToCart, removeFromCart } = useCart();

@@ -40,6 +40,7 @@ function Product({ product, onAddToCart }) {
         onClick={openModal}
       />
       <h3 className={styles.productName}>{product.name}</h3>
+      <h2 className={styles.productType}>{product.type}</h2>
       <p className={styles.productPrice}>€{product.price}</p>
 
       <div className={styles.quantityControls}>
@@ -112,6 +113,7 @@ Product.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
   }).isRequired,
