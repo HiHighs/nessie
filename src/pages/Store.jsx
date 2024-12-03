@@ -29,10 +29,8 @@ function Store() {
       {!isUnderstood && (
         <div className={styles.important}>
           <p className={styles.message}>
-            <b>IMPORTANT:</b> I’m working on implementing automatic payments and
-            delivery options. <br />
-            For now, after you place your order, you’ll receive an email with
-            payment instructions. <br />
+            <b>IMPORTANT:</b> After you place your order, you’ll receive an
+            email with payment instructions. <br />
             Once I receive your payment, I’ll ship your order as soon as
             possible.
             <br />
@@ -50,7 +48,7 @@ function Store() {
 
       {/* Category Filters */}
       <div className={styles.categoryFilters}>
-        {['All', 'Print', 'Sticker', 'Others'].map((category) => (
+        {['All', 'Print', 'Sticker', 'Other'].map((category) => (
           <button
             key={category}
             className={`${styles.filterButton} ${
@@ -58,7 +56,9 @@ function Store() {
             }`}
             onClick={() => setSelectedCategory(category)}
           >
-            {category}
+            {category !== 'All' && category !== 'Other'
+              ? `${category}s`
+              : category}
           </button>
         ))}
       </div>

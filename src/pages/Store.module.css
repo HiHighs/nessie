@@ -25,6 +25,10 @@ h2 {
   animation: fadeIn 1.5s ease-in forwards;
 }
 
+.important p {
+  line-height: 1.3rem;
+}
+
 .understood {
   margin-bottom: 1.5vh;
   padding: 8px 16px;
@@ -47,6 +51,8 @@ h2 {
   justify-content: center;
   margin: 1.5rem 0 0.5rem;
   gap: 1rem;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
 }
 
 .filterButton {

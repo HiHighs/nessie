@@ -2,18 +2,24 @@
   display: flex;
   max-width: 1280px;
   margin: 0 auto;
-  gap: 12em;
-  padding: 7vh 8vw;
+  gap: 3em;
+  padding: 1vh 8vw;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
+}
+
+.text .title {
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  letter-spacing: normal;
 }
 
 /* Image sizing adjustment */
 .nessie {
   width: 33%;
   height: auto;
-  padding-top: 1.2em;
   transition: opacity 0.7s ease, transform 0.7s ease;
   max-width: 100%; /* Ensures the image can scale responsively */
 }
@@ -39,7 +45,8 @@
 }
 
 .text .first {
-  padding-top: 1.5em;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .text a {
@@ -108,7 +115,6 @@
 
   .nessie {
     width: 100%;
-    padding-top: 0;
   }
 
   .text p {
