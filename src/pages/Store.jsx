@@ -10,6 +10,15 @@ import { products } from '../services/store/products.js';
 function Store() {
   const { addToCart, removeFromCart } = useCart();
   const [isUnderstood, setIsUnderstood] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  // Filter products based on the selected category
+  const filteredProducts =
+    selectedCategory === 'All'
+      ? products
+      : products.filter((product) =>
+          product.type.toLowerCase().includes(selectedCategory.toLowerCase())
+        );
 
   return (
     <div>
@@ -39,8 +48,24 @@ function Store() {
         </div>
       )}
 
+      {/* Category Filters */}
+      <div className={styles.categoryFilters}>
+        {['All', 'Print', 'Sticker', 'Others'].map((category) => (
+          <button
+            key={category}
+            className={`${styles.filterButton} ${
+              selectedCategory === category ? styles.activeFilter : ''
+            }`}
+            onClick={() => setSelectedCategory(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      {/* Product List */}
       <div className={styles.productList}>
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <Product
             key={product.id}
             product={product}

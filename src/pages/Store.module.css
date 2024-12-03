@@ -2,7 +2,7 @@
   display: grid;
   gap: 2rem;
   padding: 1rem;
-  max-width: 1200px;
+  max-width: 1050px;
   margin: 0 auto;
   grid-template-columns: repeat(3, 1fr); /* 3 products per row */
   opacity: 0;
@@ -20,7 +20,7 @@ h2 {
   padding: 5px;
   background-color: pink;
   border-radius: 10px;
-  margin-bottom: 2vh;
+  margin-bottom: 1rem;
   opacity: 0;
   animation: fadeIn 1.5s ease-in forwards;
 }
@@ -39,6 +39,37 @@ h2 {
 .understood:hover {
   color: #f0f0f0;
   background-color: black;
+}
+
+/* Category filter */
+.categoryFilters {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0 0.5rem;
+  gap: 1rem;
+}
+
+.filterButton {
+  padding: 8px 20px;
+  font-size: 16px;
+  border: 1px solid black;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  background-color: #f0f0f0;
+}
+
+.filterButton:hover {
+  background-color: #9ce400;
+  border: 1px solid #9ce400;
+  color: black;
+}
+
+.activeFilter {
+  background-color: black;
+  color: white;
 }
 
 /* fade in */
@@ -70,6 +101,9 @@ h2 {
     display: inline;
     padding: 0;
   }
+  .categoryFilters {
+    margin: 1.5rem 0 1.5rem;
+  }
 }
 
 @media (max-width: 700px) {
@@ -88,5 +122,11 @@ h2 {
 @media (max-width: 600px) {
   .important {
     max-width: 270px;
+  }
+  .categoryFilters {
+    display: flex;
+    flex-direction: column;
+    margin: 0 30vw;
+    margin-bottom: 3vh;
   }
 }
