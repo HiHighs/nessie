@@ -1,7 +1,7 @@
 .grid {
   display: grid;
-  gap: 2vw;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 3vw;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   max-width: 980px;
   margin: 0 auto;
   padding: 4vh 4vw;
@@ -79,12 +79,6 @@
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-}
-
-@media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
 

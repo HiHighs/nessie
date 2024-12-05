@@ -35,7 +35,7 @@ function Product({ product, onAddToCart }) {
     <div className={styles.card}>
       <img
         className={styles.productImage}
-        src={product.image}
+        src={product.thumbnail ? product.thumbnail : product.image}
         alt={product.name}
         onClick={openModal}
       />
@@ -116,6 +116,7 @@ Product.propTypes = {
     type: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
+    thumbnail: PropTypes.string.isRequired,
   }).isRequired,
   onAddToCart: PropTypes.func.isRequired,
 };
