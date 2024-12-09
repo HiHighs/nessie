@@ -10,9 +10,11 @@ import {
 } from '../../services/emailService/emailService';
 import ClientInfo from './ClientInfo';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../Components/CartContext/CartContext';
 
 function Checkout({ cart, totalAmount }) {
   const navigate = useNavigate();
+  const { clearCart } = useCart();
   const [step, setStep] = useState(1);
   const [clientDetails, setClientDetails] = useState(null);
   const [clientAddress, setClientAddress] = useState(null);
@@ -35,6 +37,7 @@ function Checkout({ cart, totalAmount }) {
     sendOrderConfirmationEmail(clientDetails, clientAddress, cart, totalAmount);
     // payment
     sendAdminOrderNotification(clientDetails, clientAddress, cart, totalAmount);
+    clearCart();
     setStep(4);
   }
 
